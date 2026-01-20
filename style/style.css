@@ -432,3 +432,97 @@ footer { text-align: center; padding: 2rem; background: #020617; color: var(--te
 .toast-icon {
     font-size: 1.2rem;
 }
+@media (max-width: 768px) {
+    
+    /* 1. LAYOUT & SPACING */
+    section {
+        padding: 3rem 1.5rem; /* Less padding on mobile */
+    }
+
+    /* 2. HEADER & NAVIGATION */
+    .nav-links {
+        position: absolute;
+        right: 0px;
+        top: 70px; /* Pushes it below the header */
+        background-color: var(--card-bg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        transform: translateX(100%); /* Hidden to the right by default */
+        transition: transform 0.3s ease-in-out;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+        padding: 2rem 0;
+        z-index: 999;
+    }
+
+    /* JavaScript toggles this class to show menu */
+    .nav-links.active {
+        transform: translateX(0%);
+    }
+
+    .menu-toggle {
+        display: block; /* Show hamburger icon */
+        cursor: pointer;
+    }
+
+    /* 3. HERO SECTION (Stack Vertical) */
+    .hero-split {
+        flex-direction: column-reverse; /* Image on top, text below */
+        text-align: center;
+        gap: 2rem;
+        justify-content: center;
+    }
+
+    .hero-image-container {
+        justify-content: center; /* Center the image */
+        padding-right: 0;
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+
+    .profile-photo {
+        width: 260px;  /* Much smaller for phone */
+        height: 260px;
+        border-width: 2px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem; /* Smaller font so it doesn't wrap weirdly */
+    }
+
+    .btn-group {
+        justify-content: center; /* Center buttons */
+    }
+
+    /* 4. ABOUT PAGE (Stack Vertical) */
+    .about-split, .stats-container {
+        grid-template-columns: 1fr; /* Force 1 column */
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .stats-container {
+        border-top: none; /* Clean up borders for stack view */
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 2rem;
+    }
+
+    /* 5. MODALS (PDF & Images) */
+    .cv-container {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+    
+    .modal-content {
+        max-width: 95%; /* Prevent image overflow */
+    }
+}
+
+/* Extra Small Screens (Old iPhones, SE, etc) */
+@media (max-width: 400px) {
+    .hero-text h1 { font-size: 1.8rem; }
+    .profile-photo { width: 220px; height: 220px; }
+    .btn-group { flex-direction: column; gap: 0.8rem; } /* Stack buttons vertically */
+}
