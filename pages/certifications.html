@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certifications | My Portfolio</title>
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+<body>
+    <div id="preloader">
+        <div class="loader-spinner"></div>
+    </div>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">My Portfolio.</a>
+            <div class="menu-toggle" id="mobile-menu">☰</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="certifications.html" class="active">Certifications</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section>
+            <div class="page-title">
+                <h1>My Credentials</h1>
+                <span></span>
+            </div>
+
+            <div class="cert-category">
+                <h2>Recognitions</h2>
+                <div class="cert-grid">
+                    <div class="cert-card">
+                        <img src="../images/certificate.jpg" alt="TOPCIT" class="cert-img" onclick="openModal(this.src)">
+                        <h3>TOPCIT Top Performer</h3>
+                        <p style="color: var(--text-gray);">Top 3 in BukSU (Level 2)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cert-category">
+                <h2>Certifications</h2>
+                <div class="cert-grid">
+                    <div class="cert-card">
+                        <img src="../images/cisco1.png" alt="CCNA 1" class="cert-img" onclick="openModal(this.src)">
+                        <h3>Cisco CCNA 1</h3>
+                        <p style="color: var(--text-gray);">Introduction to Networks</p>
+                    </div>
+                    <div class="cert-card">
+                        <img src="../images/cisco2.png" alt="CCNA 2" class="cert-img" onclick="openModal(this.src)">
+                        <h3>Cisco CCNA 2</h3>
+                        <p style="color: var(--text-gray);">Switching, Routing, and Wireless Essentials</p>
+                    </div>
+                    <div class="cert-card">
+                        <img src="../images/cisco3.png" alt="CCNA 3" class="cert-img" onclick="openModal(this.src)">
+                        <h3>Cisco CCNA 3</h3>
+                        <p style="color: var(--text-gray);">Enterprise Networking, Security, and Automation</p>
+                    </div>
+                    <div class="cert-card">
+                        <img src="../images/cyber.png" alt="Cybersecurity" class="cert-img" onclick="openModal(this.src)">
+                        <h3>Introduction to Cybersecurity</h3>
+                        <p style="color: var(--text-gray);">Threats and Vulnerabilities</p>
+                    </div>
+                    <div class="cert-card">
+                        <img src="../images/certificate1.png" alt="DICT" class="cert-img" onclick="openModal(this.src)">
+                        <h3>DICT</h3>
+                        <p style="color: var(--text-gray);">Principles of Design</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="imageModal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="modalImg">
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Sedrick James Camiguing.</p>
+    </footer>
+    <div id="toast-container"></div>
+    <script src="../js/script.js"></script>
+</body>
+</html>

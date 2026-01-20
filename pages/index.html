@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | My Portfolio</title>
+    <link rel="stylesheet" href="../style/style.css">
+</head>
+<body>
+    <div id="preloader">
+        <div class="loader-spinner"></div>
+    </div>
+    <header>    
+        <div class="nav-container">
+            <a href="index.html" class="logo">My Portfolio.</a>
+            <div class="menu-toggle" id="mobile-menu">☰</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="certifications.html">Certifications</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-split">
+            <div class="hero-text">
+                <h1>Hi, I'm <span class="highlight">Sedrick James P. Camiguing</span></h1>
+                <h2 class="subtitle">Aspiring Web Developer & IT Specialist</h2>
+                <p style="margin-bottom: 2rem; color: var(--text-gray);">
+                    A 4th-year IT student with a foundation in networking and web development, passionate about creating efficient and user-friendly digital solutions.
+                </p>
+                <div class="btn-group">
+                    <a href="/Camiguing, Sedrick James - Resume.pdf" onclick="showToast('Downloading Resume...')" class="btn-primary">Download CV</a>
+                    <a href="mailto:2201103327@student.buksu.edu.ph" class="btn-outline">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-image-container">
+                <img src="../images/pic.png" alt="Profile" class="profile-photo">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Sedrick James Camiguing.</p>
+    </footer>
+    <div id="toast-container"></div>
+    <script src="../js/script.js"></script>
+
+</body>
+</html>
