@@ -1,11 +1,11 @@
-/* --- 1. RESET & VARIABLES --- */
+/*1. RESET & VARIABLES*/
 :root {
-    --primary-color: #3b82f6; /* Bright Blue */
-    --bg-dark: #0f172a;       /* Deep Dark Background */
-    --card-bg: #1e293b;       /* Lighter Dark for Cards */
-    --text-light: #f1f5f9;    /* White text */
-    --text-gray: #94a3b8;     /* Gray text */
-    --border-color: #334155;  /* Subtle borders */
+    --primary-color: #3b82f6;
+    --bg-dark: #0f172a;     
+    --card-bg: #1e293b;     
+    --text-light: #f1f5f9;    
+    --text-gray: #94a3b8;    
+    --border-color: #334155; 
     --transition: all 0.3s ease;
 }
 
@@ -23,8 +23,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    opacity: 0; /* Start invisible for animation */
-    animation: fadeIn 0.8s ease-in forwards; /* Trigger Fade In */
+    opacity: 0;
+    animation: fadeIn 0.8s ease-in forwards;
 }
 
 @keyframes fadeIn {
@@ -36,7 +36,7 @@ a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 img { max-width: 100%; display: block; }
 
-/* --- 2. NAVIGATION (UNIFORM) --- */
+/* 2. NAVIGATION (UNIFORM) */
 header {
     background-color: var(--card-bg);
     border-bottom: 1px solid var(--border-color);
@@ -65,14 +65,14 @@ header {
 .nav-links a:hover, .nav-links a.active { color: var(--primary-color); }
 .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--text-light); }
 
-/* --- 3. GENERAL LAYOUT --- */
+/* 3. GENERAL LAYOUT */
 main { flex: 1; }
 section { padding: 4rem 1.5rem; max-width: 1100px; margin: 0 auto; }
 .page-title { text-align: center; margin-bottom: 3rem; }
 .page-title h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
 .page-title span { display: block; width: 60px; height: 4px; background: var(--primary-color); margin: 0 auto; }
 
-/* --- 4. BUTTONS --- */
+/*4. BUTTONS */
 .btn-group { display: flex; gap: 1rem; }
 .btn-primary {
     display: inline-block; padding: 0.8rem 2rem; border-radius: 50px;
@@ -88,46 +88,43 @@ section { padding: 4rem 1.5rem; max-width: 1100px; margin: 0 auto; }
 }
 .btn-outline:hover { background: var(--primary-color); color: white; }
 
-/* --- 5. HERO SECTION (HOME) --- */
+/*5. HERO SECTION*/
 .hero-split { display: flex; align-items: center; justify-content: space-between; min-height: 85vh; gap: 4rem; }
 .hero-text { flex: 1; }
 .hero-text h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 1rem; }
 .highlight { color: var(--primary-color); }
 .subtitle { font-size: 1.5rem; color: var(--text-gray); margin-bottom: 1.5rem; }
-/* --- HERO IMAGE (SQUARE STYLE) --- */
 
+/*HERO IMAGE*/
 .hero-image-container {
     flex: 1;
     display: flex;
-    justify-content: flex-end; /* Aligns image to the right */
-    padding-right: 0;       /* Space from edge */
+    justify-content: flex-end; 
+    padding-right: 0;      
     align-items: center;
     margin-right: -8rem;
 }
 
-/* Update in style/style.css */
 .profile-photo {
     /* 1. INCREASED SIZE (Was 350px, now 450px) */
     width: 450px;
     height: 450px;
     
     /* 2. THE CROP FIX */
-    /* 'cover' fills the square perfectly (no black bars) */
+
     object-fit: cover; 
-    /* 'top center' focuses on your face so it doesn't crop your head */
+
     object-position: top center; 
     
     /* 3. STYLING */
     border-radius: 20px;
     border: 2px solid var(--primary-color);
     
-    /* Increased shadow slightly to match the bigger size */
     box-shadow: 25px 25px 0px rgba(59, 130, 246, 0.2); 
     
     transition: all 0.3s ease;
 }
 
-/* Hover Effect - Moves even more now */
 .profile-photo:hover {
     transform: translate(-8px, -8px);
     box-shadow: 30px 30px 0px rgba(59, 130, 246, 0.4);
@@ -142,13 +139,13 @@ section { padding: 4rem 1.5rem; max-width: 1100px; margin: 0 auto; }
     }
     
     .profile-photo {
-        width: 280px;  /* Smaller square for mobile */
+        width: 280px;
         height: 280px;
         box-shadow: 15px 15px 0px rgba(59, 130, 246, 0.2);
     }
 }
 
-/* --- 6. ABOUT PAGE (INTERESTS & SKILLS) --- */
+/*6. ABOUT PAGE (INTERESTS & SKILLS)*/
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
 .skill-tag { 
     background: transparent; color: var(--primary-color); border: 1px solid var(--primary-color);
@@ -159,7 +156,7 @@ section { padding: 4rem 1.5rem; max-width: 1100px; margin: 0 auto; }
     border-left: 4px solid var(--primary-color);
 }
 
-/* --- 7. CERTIFICATIONS PAGE (NEW) --- */
+/*7. CERTIFICATIONS PAGE*/
 .cert-category { margin-bottom: 4rem; }
 .cert-category h2 { margin-bottom: 1.5rem; color: var(--text-gray); border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
 .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
@@ -170,24 +167,24 @@ section { padding: 4rem 1.5rem; max-width: 1100px; margin: 0 auto; }
 .cert-card:hover { transform: translateY(-5px); border-color: var(--primary-color); }
 .cert-img {
     width: 100%;
-    height: auto;          /* Allows height to grow so the certificate isn't squashed */
-    min-height: 250px;     /* Sets a minimum size */
-    object-fit: contain;   /* Ensures text on certificate is never cropped */
+    height: auto;        
+    min-height: 250px;     
+    object-fit: contain;   
     border-radius: 5px;
     margin-bottom: 1rem;
-    background-color: #1e293b; /* Matches card background */
+    background-color: #1e293b;
 }
 
-/* --- 8. PORTFOLIO & MODAL --- */
+/*8. PORTFOLIO & MODAL*/
 .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
 .portfolio-card { background: var(--card-bg); border-radius: 10px; overflow: hidden; border: 1px solid var(--border-color); }
 .clickable-image { cursor: pointer; overflow: hidden; position: relative; height: 200px; }
 .clickable-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
 .clickable-image:hover img { transform: scale(1.1); opacity: 0.7; }
 
-/* --- UPDATED MODAL STYLES (Centers Image on Screen) --- */
+/*MODAL STYLES */
 .modal {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed; 
     z-index: 2000; 
     left: 0;
@@ -195,16 +192,14 @@ section { padding: 4rem 1.5rem; max-width: 1100px; margin: 0 auto; }
     width: 100%; 
     height: 100%; 
     background-color: rgba(0, 0, 0, 0.9); 
-    
-    /* THESE ARE REQUIRED FOR CENTERING: */
-    justify-content: center; /* Centers Left-to-Right */
-    align-items: center;     /* Centers Top-to-Bottom */
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-content {
     display: block;
     max-width: 90%;
-    max-height: 90vh; /* Prevents image from being taller than the screen */
+    max-height: 90vh;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -215,14 +210,11 @@ section { padding: 4rem 1.5rem; max-width: 1100px; margin: 0 auto; }
     animation-name: zoom;
     animation-duration: 0.3s;
 }
-
-/* Zoom Animation */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
-/* Close Button (Moved to top right of SCREEN, not image) */
 .close {
     position: absolute;
     top: 20px;
@@ -238,14 +230,13 @@ section { padding: 4rem 1.5rem; max-width: 1100px; margin: 0 auto; }
     color: var(--primary-color);
 }
 
-/* Mobile Fix */
 @media only screen and (max-width: 700px){
     .modal-content {
         width: 100%;
     }
 }
 
-/* --- 9. FOOTER & RESPONSIVE --- */
+/*9. FOOTER & RESPONSIVE */
 footer { text-align: center; padding: 2rem; background: #020617; color: var(--text-gray); border-top: 1px solid var(--border-color); margin-top: auto; }
 
 @media (max-width: 768px) {
@@ -256,11 +247,10 @@ footer { text-align: center; padding: 2rem; background: #020617; color: var(--te
     .profile-photo { width: 250px; height: 250px; }
 }
 .cert-img {
-    cursor: pointer; /* This turns the mouse into a hand */
+    cursor: pointer;
     transition: transform 0.3s ease;
 }
 
-/* Add a slight zoom effect on hover so the user knows it's active */
 .cert-img:hover {
     transform: scale(1.02);
     opacity: 0.9;
@@ -293,29 +283,28 @@ footer { text-align: center; padding: 2rem; background: #020617; color: var(--te
 .stat-box h3 { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 0.2rem; }
 .stat-box p { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-gray); }
 
-/* --- SPLIT LAYOUT (Balanced) --- */
 .about-split {
     display: grid;
-    /* CHANGED: Equal 50/50 split */
+    
     grid-template-columns: 1fr 1fr; 
     gap: 3rem;
     margin-top: 2rem;
 }
 
-/* Headers for both columns */
+
 .skills-section h2 {
     margin-bottom: 2rem;
     font-size: 1.8rem;
-    text-align: center; /* Center the headers */
+    text-align: center;
 }
 
-/* --- TECHNICAL CARDS (The Default Blue) --- */
+/*TECHNICAL CARDS*/
 .skill-category {
     margin-bottom: 2rem;
     background: var(--card-bg);
     padding: 1.5rem;
     border-radius: 10px;
-    border: 1px solid var(--border-color); /* Default Blue-ish gray */
+    border: 1px solid var(--border-color);
     transition: transform 0.3s ease;
 }
 
@@ -329,15 +318,14 @@ footer { text-align: center; padding: 2rem; background: #020617; color: var(--te
 
 .tags { display: flex; flex-wrap: wrap; gap: 0.8rem; }
 
-/* --- NEW: SOFT SKILL CARDS (The Purple Variant) --- */
+/*SOFT SKILL CARDS*/
 .soft-card {
-    /* Different border color (Purple) */
     border-left: 4px solid rgba(59, 130, 246, 0.4); 
     border-top: 1px solid rgba(139, 92, 246, 0.2);
 }
 
 .soft-card h3 {
-    color: #a78bfa; /* Light Purple Text */
+    color: #a78bfa;
 }
 
 .soft-card p {
@@ -347,7 +335,7 @@ footer { text-align: center; padding: 2rem; background: #020617; color: var(--te
 }
 
 .soft-card strong {
-    color: #f1f5f9; /* White highlight for key phrases */
+    color: #f1f5f9;
 }
 
 /* Hover Effects */
@@ -356,18 +344,18 @@ footer { text-align: center; padding: 2rem; background: #020617; color: var(--te
 }
 
 .soft-card:hover {
-    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15); /* Purple Glow */
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
 }
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-    .stats-container { flex-direction: column; gap: 2rem; }
-    .about-split { grid-template-columns: 1fr; } /* Stack vertically on phone */
+    .stats-container { flex-direction: column; gap: 2rem;}
+    .about-split { grid-template-columns: 1fr; } 
 }
 .simple-soft h3 {
-    border-bottom: none !important;  /* Forces the line to disappear */
-    padding-bottom: 0 !important;    /* Removes the gap */
-    margin-bottom: 0 !important;     /* Removes the gap */
+    border-bottom: none !important;  
+    padding-bottom: 0 !important;    
+    margin-bottom: 0 !important;     
 }
 /* --- 10. PRELOADER --- */
 #preloader {
@@ -388,7 +376,7 @@ footer { text-align: center; padding: 2rem; background: #020617; color: var(--te
     width: 50px;
     height: 50px;
     border: 5px solid var(--card-bg);
-    border-top: 5px solid var(--primary-color); /* Blue spinner */
+    border-top: 5px solid var(--primary-color); 
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
@@ -398,21 +386,20 @@ footer { text-align: center; padding: 2rem; background: #020617; color: var(--te
     100% { transform: rotate(360deg); }
 }
 
-/* --- 11. SCROLL ANIMATIONS --- */
-/* Elements start hidden and pushed down slightly */
+/*11. SCROLL ANIMATIONS*/
 .hidden-section {
     opacity: 0;
-    transform: translateY(30px); /* Pushed down 30px */
-    transition: all 0.8s ease-out; /* Smooth float up */
+    transform: translateY(30px); 
+    transition: all 0.8s ease-out; 
 }
 
-/* JS adds this class when the element appears on screen */
+
 .show-section {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* --- 12. TOAST NOTIFICATIONS (Pop-ups) --- */
+
 #toast-container {
     position: fixed;
     bottom: 20px;
@@ -434,10 +421,8 @@ footer { text-align: center; padding: 2rem; background: #020617; color: var(--te
     display: flex;
     align-items: center;
     gap: 10px;
-    
-    /* Slide in animation */
     transform: translateX(120%);
-    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Bouncy effect */
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
 .toast.show {
