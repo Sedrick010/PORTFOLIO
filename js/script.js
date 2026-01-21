@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
             preloader.style.opacity = '0';
             setTimeout(() => {
                 preloader.style.display = 'none';
-            }, 500); // Matches CSS transition time
+            }, 500);
         });
     }
 
@@ -20,41 +20,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 3. ACTIVE LINK HIGHLIGHTER ---
-    const currentLocation = location.href;
-    const menuItem = document.querySelectorAll('.nav-links a');
-    for (let i = 0; i < menuItem.length; i++) {
-        if (menuItem[i].href === currentLocation) {
-            menuItem[i].className = "active";
-        }
-    }
-
-    // --- 4. SCROLL ANIMATIONS (Intersection Observer) ---
-    const observerOptions = {
-        threshold: 0.1 // Trigger when 10% of the item is visible
-    };
-
+    // --- 3. SCROLL ANIMATIONS ---
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('show-section');
             }
         });
-    }, observerOptions);
+    });
 
-    // Apply observer to all elements with 'hidden-section' class
     const hiddenElements = document.querySelectorAll('.hidden-section');
     hiddenElements.forEach((el) => observer.observe(el));
 });
 
-// --- 5. MODAL LOGIC (Existing) ---
+// --- HELPER FUNCTIONS FOR SCROLL LOCKING ---
+function lockScroll() {
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden'; // Locks HTML for mobile support
+}
+
+function unlockScroll() {
+    document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
+}
+
+// --- 4. IMAGE MODAL (Certificates) ---
 function openModal(imageSrc) {
     const modal = document.getElementById("imageModal");
     const modalImg = document.getElementById("modalImg");
+    
     if (modal && modalImg) {
-        modal.style.display = "flex";
+        modal.style.display = "flex"; 
         modalImg.src = imageSrc;
-        document.body.style.overflow = "hidden";
+        lockScroll(); // <--- FREEZES BACKGROUND
     }
 }
 
@@ -62,40 +60,71 @@ function closeModal() {
     const modal = document.getElementById("imageModal");
     if (modal) {
         modal.style.display = "none";
-        document.body.style.overflow = "auto";
+        unlockScroll(); // <--- UNFREEZES BACKGROUND
     }
 }
 
-window.onclick = function(event) {
-    const modal = document.getElementById("imageModal");
-    if (event.target == modal) {
+// --- 5. CV MODAL (Resume) ---
+function openCV() {
+    // Mobile Check: Open PDF in new tab on phones (better readability)
+    if (window.innerWidth < 768) {
+        // Change 'resume.pdf' to your actual file name if different
+        window.open('resume.pdf', '_blank'); 
+        return;
+    }
+
+    const modal = document.getElementById("cvModal");
+    if (modal) {
+        modal.style.display = "flex";
+        lockScroll(); // <--- FREEZES BACKGROUND
+    }
+}
+
+function closeCV() {
+    const modal = document.getElementById("cvModal");
+    if (modal) {
         modal.style.display = "none";
-        document.body.style.overflow = "auto";
+        unlockScroll(); // <--- UNFREEZES BACKGROUND
     }
 }
 
-// --- 6. TOAST NOTIFICATION FUNCTION ---
-// Call this function anywhere: showToast("Message here!");
+// --- 6. CLOSE ON CLICK OUTSIDE ---
+window.onclick = function(event) {
+    const imgModal = document.getElementById("imageModal");
+    const cvModal = document.getElementById("cvModal");
+    
+    if (event.target == imgModal) {
+        imgModal.style.display = "none";
+        unlockScroll();
+    }
+    
+    if (event.target == cvModal) {
+        cvModal.style.display = "none";
+        unlockScroll();
+    }
+}
+
+// --- 7. TOAST NOTIFICATIONS ---
 function showToast(message) {
     const container = document.getElementById('toast-container');
-    
-    // Create toast element
+    if (!container) return;
+
     const toast = document.createElement('div');
     toast.className = 'toast';
     toast.innerHTML = `<span class="toast-icon">✨</span> ${message}`;
     
     container.appendChild(toast);
 
-    // Trigger animation (small delay to allow DOM to render)
     setTimeout(() => {
         toast.classList.add('show');
     }, 10);
 
-    // Remove toast after 3 seconds
     setTimeout(() => {
         toast.classList.remove('show');
         setTimeout(() => {
-            container.removeChild(toast);
-        }, 400); // Wait for slide-out animation
+            if (container.contains(toast)) {
+                container.removeChild(toast);
+            }
+        }, 400);
     }, 3000);
 }
