@@ -3,50 +3,285 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | My Portfolio</title>
-    <link rel="stylesheet" href="./style/style.css">
+    <title>Sedrick James | Portfolio</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
+    
     <div id="preloader">
         <div class="loader-spinner"></div>
     </div>
+
     <header>    
         <div class="nav-container">
-            <a href="index.html" class="logo">My Portfolio.</a>
+            <a href="#home" class="logo">SJC.</a>
             <div class="menu-toggle" id="mobile-menu">☰</div>
             <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="./pages/about.html">About</a></li>
-                <li><a href="./pages/certifications.html">Certifications</a></li>
-                <li><a href="./pages/portfolio.html">Portfolio</a></li>
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
             </ul>
         </div>
     </header>
 
     <main>
-        <section class="hero-split">
+        <section id="home" class="hero-split">
             <div class="hero-text">
-                <h1>Hi, I'm <span class="highlight">Sedrick James Camiguing</span></h1>
-                <h2 class="subtitle">Aspiring Web Developer & IT Specialist</h2>
-                <p style="margin-bottom: 2rem; color: var(--text-gray);">
-                    A 4th-year IT student with a foundation in networking and web development, passionate about creating efficient and user-friendly digital solutions.
+                <h2 class="subtitle reveal">Hello, I am</h2>
+                <h1 class="giant-name reveal delay-100">Sedrick James<br><span class="highlight">Camiguing</span></h1>
+                <h3 class="role-text reveal delay-200">Aspiring Web Developer & IT Specialist</h3>
+                <p class="hero-desc reveal delay-300">
+                    A 4th-year IT student passionate about bridging the gap between complex backend logic and beautiful user interfaces.
                 </p>
-                <div class="btn-group">
-                    <a href="resume.pdf" onclick="showToast('Downloading Resume...')" class="btn-primary">View CV</a>
+                <div class="btn-group reveal delay-400">
+                    <button onclick="openCV()" class="btn-primary">View CV</button>
                     <a href="mailto:2201103327@student.buksu.edu.ph" class="btn-outline">Contact Me</a>
                 </div>
             </div>
-            <div class="hero-image-container">
-                <img src="/images/pic.png" alt="Profile" class="profile-photo">
+            <div class="hero-image-container reveal delay-200">
+                <img src="images/pic.png" alt="Profile" class="profile-photo">
             </div>
+        </section>
+
+        <section id="about" class="reveal">
+            <div class="about-hero">
+                <div class="page-title reveal">
+                    <h1>About Me</h1>
+                    <span></span>
+                </div>
+                <div class="bio-text reveal delay-100">
+                    <p>
+                        I am a <strong>4th-year IT student</strong> at <strong>Bukidnon State University</strong>. My journey started with basic curiosity but quickly evolved into a pursuit of <strong>Networking</strong> and <strong>Web Development</strong>. 
+                    </p>
+                </div>
+                <div class="stats-container reveal delay-200">
+                    <div class="stat-box"><h3>04</h3><p>Years in IT</p></div>
+                    <div class="stat-box"><h3>06</h3><p>Dean's Lister</p></div>
+                    <div class="stat-box"><h3>05</h3><p>Certifications</p></div>
+                </div>
+            </div>
+
+            <div class="about-split reveal delay-200">
+                <div class="skills-section">
+                    <h2>Technical Arsenal</h2>
+                    <div class="skill-category">
+                        <h3>Development</h3>
+                        <div class="tags">
+                            <span class="skill-tag">HTML/CSS</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React.js</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Laravel</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Networking & IT</h3>
+                        <div class="tags">
+                            <span class="skill-tag">Cisco Packet Tracer</span>
+                            <span class="skill-tag">Subnetting</span>
+                            <span class="skill-tag">VLAN</span>
+                            <span class="skill-tag">Hardware Troubleshooting</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Database</h3>
+                        <div class="tags">
+                            <span class="skill-tag">MySQL</span>
+                            <span class="skill-tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-section">
+                    <h2>Soft Skills</h2>
+                    <div class="soft-grid">
+                        <div class="soft-card"><h3>Work Ethic</h3></div>
+                        <div class="soft-card"><h3>Analytical Thinking</h3></div>
+                        <div class="soft-card"><h3>Adaptability</h3></div>
+                        <div class="soft-card"><h3>Problem Solving</h3></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="reveal">
+            <div class="page-title">
+                <h1>Credentials</h1>
+                <span></span>
+            </div>
+            <div class="cert-category">
+                <h2>Recognitions</h2>
+                <div class="cert-grid">
+                    <div class="cert-card clickable-card reveal" onclick="openModal('images/certificate.jpg')">
+                        
+                        <h3>TOPCIT Top Performer</h3>
+                        <p>Top 3 in BukSU (Level 2)</p>
+                        <span class="view-link">View Certificate &rarr;</span>
+                    </div>
+                </div>
+            </div>
+            <div class="cert-category">
+                <h2>Certifications</h2>
+                <div class="cert-grid">
+                    <div class="cert-card clickable-card reveal" onclick="openModal('images/cisco1.png')">
+                        
+                        <h3>Cisco CCNA 1</h3>
+                        <p>Introduction to Networks</p>
+                        <span class="view-link">View Certificate &rarr;</span>
+                    </div>
+                    <div class="cert-card clickable-card reveal delay-100" onclick="openModal('images/cisco2.png')">
+                        
+                        <h3>Cisco CCNA 2</h3>
+                        <p>Switching, Routing, & Wireless</p>
+                        <span class="view-link">View Certificate &rarr;</span>
+                    </div>
+                    <div class="cert-card clickable-card reveal delay-200" onclick="openModal('images/cisco3.png')">
+                        
+                        <h3>Cisco CCNA 3</h3>
+                        <p>Enterprise Networking & Security</p>
+                        <span class="view-link">View Certificate &rarr;</span>
+                    </div>
+                    <div class="cert-card clickable-card reveal delay-300" onclick="openModal('images/cyber.png')">
+                        
+                        <h3>Cybersecurity</h3>
+                        <p>Threats and Vulnerabilities</p>
+                        <span class="view-link">View Certificate &rarr;</span>
+                    </div>
+                    <div class="cert-card clickable-card reveal delay-400" onclick="openModal('images/certificate1.png')">
+                        
+                        <h3>DICT</h3>
+                        <p>Principles of Design</p>
+                        <span class="view-link">View Certificate &rarr;</span>
+                    </div>
+                    <div class="cert-card clickable-card reveal delay-500" onclick="openModal('images/topcit.png')">
+                        
+                        <h3>TOPCIT</h3>
+                        <p>Competency Certificate</p>
+                        <span class="view-link">View Certificate &rarr;</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="reveal">
+            <div class="page-title">
+                <h1>My Projects</h1>
+                <span></span>
+            </div>
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web Systems</button>
+                <button class="filter-btn" data-filter="uiux">UI/UX Design</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-card reveal" data-category="web" onclick="openProject('vet')">
+                    <div class="clickable-image">
+                        <img src="images/vet.png" alt="Vet Clinic">
+                    </div>
+                    <div class="card-info">
+                        <h3>Vet Clinic System</h3>
+                        <p>Multi-tenant web system for veterinary clinics.</p>
+                        <button class="btn-card">View Details</button>
+                    </div>
+                </div>
+                <div class="portfolio-card reveal delay-200" data-category="web" onclick="openProject('dental')">
+                    <div class="clickable-image">
+                        <img src="images/dental.png" alt="Dental Clinic">
+                    </div>
+                    <div class="card-info">
+                        <h3>Unicare</h3>
+                        <p>Management system for BukSU Dental Clinic.</p>
+                        <button class="btn-card">View Details</button>
+                    </div>
+                </div>
+                <div class="portfolio-card reveal delay-400" data-category="uiux" onclick="openProject('innovaride')">
+                    <div class="clickable-image">
+                        <img src="images/innovaride.png" alt="Innovaride">
+                    </div>
+                    <div class="card-info">
+                        <h3>Innovaride</h3>
+                        <p>High-fidelity prototype for transportation app.</p>
+                        <button class="btn-card">View Details</button>
+                    </div>
+                </div>
+            </div>
+            <section id="projects" class="reveal">
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-card reveal" data-category="web" onclick="openProject('vet')">
+                    </div>
+                </div>
+
+            <p class="project-disclaimer">
+                <strong>Note:</strong> You can visit the repositories to view source codes. Please be aware that some projects may be private or hosted in the repositories of collaborators.
+            </p>
+        </section>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2026 Sedrick James Camiguing.</p>
     </footer>
-    <div id="toast-container"></div>
-    <script src="/js/script.js"></script>
 
+    <div id="projectModal" class="modal project-modal">
+        <div class="modal-content project-content">
+            <span class="close" onclick="closeProject()">&times;</span>
+            <div class="project-split">
+                <div class="project-gallery">
+                    <div class="main-image-frame">
+                        <img id="projectMainImg" src="" alt="Project Screenshot">
+                    </div>
+                    <div class="thumbnail-row" id="projectThumbnails"></div>
+                </div>
+
+                <div class="project-details">
+                    <h2 id="projectTitle">Project Title</h2>
+                    <div id="projectRole" class="role-badge">Role</div>
+
+                    <div class="case-study-section">
+                        <h3>The Problem</h3>
+                        <p id="projectProblem">Description of the problem...</p>
+                    </div>
+
+                    <div class="case-study-section">
+                        <h3>The Solution</h3>
+                        <p id="projectSolution">Description of the solution...</p>
+                        <ul id="projectFeatures" class="feature-list"></ul>
+                    </div>
+
+                    <div class="tech-stack-box">
+                        <h3>Technologies Used</h3>
+                        <div class="tags" id="projectTech"></div>
+                    </div>
+
+                    <div class="project-links">
+                        <a id="projectLinkBtn" href="#" target="_blank" class="btn-primary">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg">
+    </div>
+
+    <div id="cvModal" class="modal">
+        <span class="close" onclick="closeCV()">&times;</span>
+        <div class="cv-scroll-container">
+            <img src="./images/resume.png" alt="My Resume" class="resume-preview">
+            <a href="resume.pdf" download="Sedrick_Camiguing_CV" class="btn-download-floating">
+                <span class="icon">⬇</span> Download PDF
+            </a>
+        </div>
+    </div> 
+
+    <div id="toast-container"></div>
+    <script src="js/script.js"></script>
 </body>
 </html>
