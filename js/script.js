@@ -105,7 +105,7 @@ const projects = {
             "Subscription-based access",
             "Role-based dashboards (Admin, Clinics)"
         ],
-        tech: ["PHP (Laravel)", "MySQL", "Blade", "JavaScript"],
+        tech: ["PHP (Laravel)", "MySQL", "Blade", "Tailwind CSS"],
         link: "https://github.com/Sedrick010/Vet-Clinic-Management-System/tree/INTEGRATION",
         images: ["images/vet.png", "images/vet_ss1.png", "images/vet_ss2.png"] 
     },
@@ -128,7 +128,7 @@ const projects = {
         category: 'uiux',
         title: "Innovaride Prototype",
         role: "Co-Designer",
-        problem: "Commuters in Bukidnon face anxiety and delays due to unpredictable transportation schedules and a lack of clear route information.",
+        problem: "Commuters in Malaybalay face anxiety and delays due to unpredictable transportation schedules and a lack of clear route information.",
         solution: "Designed a high-fidelity mobile application prototype that solves the information gap. The design provides real-time vehicle tracking and clear route visualization to reduce commuter uncertainty.",
         features: [
             "User-Centric Journey Mapping",
@@ -137,7 +137,7 @@ const projects = {
         ],
         tech: ["Figma"],
         link: "https://www.figma.com/design/JAbo8Li14NcL9aaTNNsVwC/InnovaRide--Efficient-Transportation",
-        images: ["images/innovaride.png", "images/innovaride.png"]
+        images: ["images/innovaride.png", "images/innovaride_ss1.png", "images/innovaride_ss2.png"]
     }
 };
 

@@ -10,6 +10,29 @@
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) var(--bg-dark);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-dark); 
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--card-bg); 
+    border-radius: 20px;
+    border: 2px solid var(--bg-dark); 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--primary-color); 
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -20,34 +43,28 @@
 html {
     scroll-behavior: smooth;
     max-width: 100%;
-    overflow-x: hidden; 
-    
-    /* THE MAGIC FIX: Scale everything down to 90% or 85% */
-    font-size: 90%; /* Default is 100% (16px). This sets it to ~14.4px */
+    overflow-x: hidden;  
+    font-size: 90%; 
 }
-
-/* On very large screens (1920px+), we can go back to normal size */
 @media (min-width: 1920px) {
     html {
         font-size: 100%;
     }
 }
-
-/* On laptops (1366px - 1440px), scale down a bit more to fit */
 @media (max-width: 1440px) {
     html {
-        font-size: 85%; /* ~13.6px base size */
+        font-size: 85%;
     }
     
-    /* Manually tame the "Giant Name" if it's still too big */
+    
     .giant-name {
-        font-size: 4.5rem; /* Reduced from 5.5rem */
+        font-size: 4.5rem;
     }
     
-    /* Reduce huge section gaps */
+    
     section {
-        padding: 4rem 0; /* Reduced from 5rem */
-        width: 85%; /* Slightly narrower container */
+        padding: 4rem 0; 
+        width: 85%; 
     }
 }
 
@@ -119,7 +136,7 @@ footer {
 .logo {
     font-size: 1.5rem;
     font-weight: 800;
-    color: var(--text-light);
+    color: var(--primary-color);
     letter-spacing: -1px;
     text-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
 }
@@ -204,14 +221,12 @@ footer {
 .hero-image-container { flex: 1; display: flex; justify-content: center; align-items: center; position: relative; }
 .hero-image-container::before { content: ''; position: absolute; width: 80%; height: 80%; background: var(--primary-color); filter: blur(100px); opacity: 0.15; z-index: -1; border-radius: 50%; }
 .profile-photo {
-    /* Changed from fixed 480px to responsive units */
-    width: 35vw;       /* 35% of viewport width */
-    height: 35vw;      /* Keeps it square */
+    width: 35vw; 
+    height: 35vw;  
     
-    /* But set reasonable limits */
-    max-width: 420px;  /* Never bigger than this */
+    max-width: 420px; 
     max-height: 420px;
-    min-width: 280px;  /* Never smaller than this on desktop */
+    min-width: 280px;  
     min-height: 280px;
     
     object-fit: cover; 
@@ -275,7 +290,11 @@ footer {
 .stat-box h3 { font-size: 3rem; font-weight: 800; color: var(--primary-color); margin-bottom: 0; }
 .stat-box p { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-gray); font-weight: 600; }
 
-.about-split { display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; }
+.about-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 2rem;
+}
 .skills-section h2 { margin-bottom: 2rem; font-size: 1.8rem; font-weight: 700; color: var(--text-light); }
 
 .skill-category { margin-bottom: 2rem; background: var(--card-bg); padding: 1.8rem; border-radius: 15px; border: 1px solid var(--border-color); transition: transform 0.3s ease; }
@@ -292,7 +311,12 @@ footer {
 /* --- 6. CERTIFICATIONS --- */
 .cert-category { margin-bottom: 4rem; }
 .cert-category h2 { margin-bottom: 1.5rem; color: var(--text-gray); border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; }
-.cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 1.5rem;
+    justify-content: center; 
+}
 
 .clickable-card { background: var(--card-bg); padding: 2rem; border-radius: 15px; border: 1px solid var(--border-color); cursor: pointer; transition: all 0.3s ease; display: flex; flex-direction: column; align-items: flex-start; height: 100%; }
 .clickable-card:hover { transform: translateY(-5px); border-color: var(--primary-color); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
@@ -328,9 +352,9 @@ footer {
     margin: 1rem auto 0 auto; 
     
     padding: 0.8rem;         
-    background: var(--primary-color); 
-    color: white;            
-    border: none;            
+    background: transparent; 
+    color: var(--primary-color);            
+    border: 2px solid var(--primary-color);            
     border-radius: 50px;     
     
     font-size: 0.95rem;
@@ -342,7 +366,8 @@ footer {
 
 /* KEEP YOUR EXISTING HOVER EFFECT */
 .btn-card:hover {
-    background: var(--primary-dark); 
+    background: var(--primary-color); 
+    color: white;
     transform: translateY(-3px);     
     box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3); 
 }
@@ -460,6 +485,29 @@ footer {
 
 /* --- MOBILE RESPONSIVENESS (STACK & SCROLL) --- */
 @media (max-width: 1000px) {
+    .about-split {
+        grid-template-columns: 1fr; 
+        gap: 3rem;
+    }
+
+    
+    .giant-name {
+        font-size: 3.5rem;
+        margin-left: 0;
+        text-align: center;
+    }
+    
+    .hero-split {
+        flex-direction: column-reverse;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .soft-grid {
+        grid-template-columns: 1fr 1fr; 
+        gap: 0.8rem;
+    }
+
     .project-content {
         height: auto; 
         max-height: 95vh; 

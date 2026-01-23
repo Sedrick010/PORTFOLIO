@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sedrick James | Portfolio</title>
+    <title>Sedrick | Portfolio</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-weight='bold' font-family='sans-serif' fill='%233b82f6'>S</text></svg>">
     <link rel="stylesheet" href="style/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,13 +13,14 @@
 </head>
 <body>
     
+    
     <div id="preloader">
         <div class="loader-spinner"></div>
     </div>
 
     <header>    
         <div class="nav-container">
-            <a href="#home" class="logo">SJC.</a>
+            <a href="#home" class="logo">$JC</a>
             <div class="menu-toggle" id="mobile-menu">☰</div>
             <ul class="nav-links">
                 <li><a href="#home" class="nav-link active">Home</a></li>
@@ -36,7 +38,7 @@
                 <h1 class="giant-name reveal delay-100">Sedrick James<br><span class="highlight">Camiguing</span></h1>
                 <h3 class="role-text reveal delay-200">Aspiring Web Developer & IT Specialist</h3>
                 <p class="hero-desc reveal delay-300">
-                    A 4th-year IT student passionate about bridging the gap between complex backend logic and beautiful user interfaces.
+                    A 4th-year IT student passionate about bridging the gap between complex backend logic and  user-friendly interfaces.
                 </p>
                 <div class="btn-group reveal delay-400">
                     <button onclick="openCV()" class="btn-primary">View CV</button>
@@ -59,16 +61,11 @@
                         I am a <strong>4th-year IT student</strong> at <strong>Bukidnon State University</strong>. My journey started with basic curiosity but quickly evolved into a pursuit of <strong>Networking</strong> and <strong>Web Development</strong>. 
                     </p>
                 </div>
-                <div class="stats-container reveal delay-200">
-                    <div class="stat-box"><h3>04</h3><p>Years in IT</p></div>
-                    <div class="stat-box"><h3>06</h3><p>Dean's Lister</p></div>
-                    <div class="stat-box"><h3>05</h3><p>Certifications</p></div>
-                </div>
             </div>
 
             <div class="about-split reveal delay-200">
                 <div class="skills-section">
-                    <h2>Technical Arsenal</h2>
+                    <h2>Technical Stack</h2>
                     <div class="skill-category">
                         <h3>Development</h3>
                         <div class="tags">
@@ -83,7 +80,6 @@
                         <h3>Networking & IT</h3>
                         <div class="tags">
                             <span class="skill-tag">Cisco Packet Tracer</span>
-                            <span class="skill-tag">Subnetting</span>
                             <span class="skill-tag">VLAN</span>
                             <span class="skill-tag">Hardware Troubleshooting</span>
                         </div>
@@ -108,61 +104,47 @@
             </div>
         </section>
 
-        <section id="certifications" class="reveal">
+       <section id="certifications" class="reveal">
             <div class="page-title">
                 <h1>Credentials</h1>
                 <span></span>
             </div>
-            <div class="cert-category">
-                <h2>Recognitions</h2>
-                <div class="cert-grid">
-                    <div class="cert-card clickable-card reveal" onclick="openModal('images/certificate.jpg')">
-                        
-                        <h3>TOPCIT Top Performer</h3>
-                        <p>Top 3 in BukSU (Level 2)</p>
-                        <span class="view-link">View Certificate &rarr;</span>
-                    </div>
+
+            <div class="cert-grid">
+                <div class="cert-card clickable-card reveal" onclick="openModal('images/topcit.png')">
+                    <h3>TOPCIT</h3>
+                    <p>Competency Certificate (Lvl 2)</p>
+                    <span class="view-link">View Certificate <i class='bx bx-right-arrow-alt'></i></span>
                 </div>
-            </div>
-            <div class="cert-category">
-                <h2>Certifications</h2>
-                <div class="cert-grid">
-                    <div class="cert-card clickable-card reveal" onclick="openModal('images/cisco1.png')">
-                        
-                        <h3>Cisco CCNA 1</h3>
-                        <p>Introduction to Networks</p>
-                        <span class="view-link">View Certificate &rarr;</span>
-                    </div>
-                    <div class="cert-card clickable-card reveal delay-100" onclick="openModal('images/cisco2.png')">
-                        
-                        <h3>Cisco CCNA 2</h3>
-                        <p>Switching, Routing, & Wireless</p>
-                        <span class="view-link">View Certificate &rarr;</span>
-                    </div>
-                    <div class="cert-card clickable-card reveal delay-200" onclick="openModal('images/cisco3.png')">
-                        
-                        <h3>Cisco CCNA 3</h3>
-                        <p>Enterprise Networking & Security</p>
-                        <span class="view-link">View Certificate &rarr;</span>
-                    </div>
-                    <div class="cert-card clickable-card reveal delay-300" onclick="openModal('images/cyber.png')">
-                        
-                        <h3>Cybersecurity</h3>
-                        <p>Threats and Vulnerabilities</p>
-                        <span class="view-link">View Certificate &rarr;</span>
-                    </div>
-                    <div class="cert-card clickable-card reveal delay-400" onclick="openModal('images/certificate1.png')">
-                        
-                        <h3>DICT</h3>
-                        <p>Principles of Design</p>
-                        <span class="view-link">View Certificate &rarr;</span>
-                    </div>
-                    <div class="cert-card clickable-card reveal delay-500" onclick="openModal('images/topcit.png')">
-                        
-                        <h3>TOPCIT</h3>
-                        <p>Competency Certificate</p>
-                        <span class="view-link">View Certificate &rarr;</span>
-                    </div>
+
+                <div class="cert-card clickable-card reveal delay-100" onclick="openModal('images/cisco1.png')">
+                    <h3>Cisco CCNA 1</h3>
+                    <p>Introduction to Networks</p>
+                    <span class="view-link">View Certificate <i class='bx bx-right-arrow-alt'></i></span>
+                </div>
+
+                <div class="cert-card clickable-card reveal delay-200" onclick="openModal('images/cisco2.png')">
+                    <h3>Cisco CCNA 2</h3>
+                    <p>Switching, Routing, & Wireless</p>
+                    <span class="view-link">View Certificate <i class='bx bx-right-arrow-alt'></i></span>
+                </div>
+
+                <div class="cert-card clickable-card reveal delay-200" onclick="openModal('images/cisco3.png')">
+                    <h3>Cisco CCNA 3</h3>
+                    <p>Enterprise Networking & Security</p>
+                    <span class="view-link">View Certificate <i class='bx bx-right-arrow-alt'></i></span>
+                </div>
+
+                <div class="cert-card clickable-card reveal delay-300" onclick="openModal('images/cyber.png')">
+                    <h3>Cybersecurity</h3>
+                    <p>Threats and Vulnerabilities</p>
+                    <span class="view-link">View Certificate <i class='bx bx-right-arrow-alt'></i></span>
+                </div>
+
+                <div class="cert-card clickable-card reveal delay-400" onclick="openModal('images/certificate1.png')">
+                    <h3>DICT</h3>
+                    <p>Principles of Design</p>
+                    <span class="view-link">View Certificate <i class='bx bx-right-arrow-alt'></i></span>
                 </div>
             </div>
         </section>
@@ -203,7 +185,7 @@
                         <img src="images/innovaride.png" alt="Innovaride">
                     </div>
                     <div class="card-info">
-                        <h3>Innovaride</h3>
+                        <h3>Innovaride (Final Design)</h3>
                         <p>High-fidelity prototype for transportation app.</p>
                         <button class="btn-card">View Details</button>
                     </div>
