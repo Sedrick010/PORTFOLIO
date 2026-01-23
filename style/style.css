@@ -588,3 +588,31 @@ footer {
 .project-disclaimer strong {
     color: var(--primary-color);
 }
+/* --- CODE SNIPPET STYLING --- */
+.code-snippet-box {
+    margin-top: 2rem;
+}
+
+.code-snippet-box h3 {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 0.8rem;
+    border-left: 4px solid var(--primary-color);
+    padding-left: 15px;
+    font-weight: 600;
+}
+
+pre {
+    background: #282c34; /* Atom One Dark background */
+    padding: 1rem;
+    border-radius: 10px;
+    overflow-x: auto; /* Adds horizontal scroll for long lines */
+    border: 1px solid var(--border-color);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+}
+
+code {
+    font-family: 'Fira Code', 'Consolas', monospace; /* Coding fonts */
+    font-size: 0.9rem;
+    line-height: 1.5;
+}

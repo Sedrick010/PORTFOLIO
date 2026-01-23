@@ -106,6 +106,15 @@ const projects = {
             "Role-based dashboards (Admin, Clinics)"
         ],
         tech: ["PHP (Laravel)", "MySQL", "Blade", "Tailwind CSS"],
+        codeSnippet: `// Example: Middleware for Admin Role Check (AdminMiddleware.php)
+             public function handle(Request $request, Closure $next): Response
+             {
+                if (!Auth::check() || Auth::user()->role !== 'admin') {
+             abort(403, 'Unauthorized action. Only administrators can access this area.');
+             }
+
+            return $next($request);
+            }`,
         link: "https://github.com/Sedrick010/Vet-Clinic-Management-System/tree/INTEGRATION",
         images: ["images/vet.png", "images/vet_ss1.png", "images/vet_ss2.png"] 
     },
@@ -121,6 +130,42 @@ const projects = {
             "Google Services Integration"
         ],
         tech: ["MongoDB", "Express JS", "React", "Node.js"],
+        codeSnippet: `// Example: Admin adding inventory item (adminServices.js)
+             async function addInventoryItem(req, res) 
+        {
+                const lockKey = 'inventory-operation';
+    
+            try {
+                 // Try to acquire lock
+                const lockStatus = await lockService.acquireLock(lockKey, req.user._id);
+                if (lockStatus.locked) {
+                  return res.status(423).json({
+                     message: 'Another admin is currently modifying inventory. Please try again later.',
+                    remainingTime: lockStatus.remainingTime
+                });
+            }
+
+                const inventoryData = req.body;
+                const newItem = new Inventory(inventoryData);
+                await newItem.save();
+
+                // Log activity only for write operations
+                await logActivity({
+                    userId: req.user._id,
+                    userRole: 'admin',
+                    action: 'addInventoryItem',
+                    details: { itemId: newItem._id, itemName: newItem.itemName }
+                });
+
+                // Release lock
+                await lockService.releaseLock(lockKey, req.user._id);
+                return res.status(201).json(newItem);
+                } catch (error) {
+                // Make sure to release lock even if there's an error
+                await lockService.releaseLock(lockKey, req.user._id);
+                res.status(500).json({ message: 'Failed to add inventory item: ' + error.message });
+                }
+            }`,
         link: "https://github.com/JhonLesterY/20241_T145_Dental-Clinic-Management-System",
         images: ["images/dental.png", "images/dental_ss1.png", "images/dental_ss2.png", "images/dental_ss3.png", "images/dental_ss4.png"]
     },
@@ -163,6 +208,19 @@ function openProject(projectId) {
         } else {
             actionBtn.innerHTML = `<i class='bx bxl-github btn-icon'></i> View Repository`; 
         }
+    }
+
+    // --- NEW: Handle Code Snippet ---
+    const snippetWrapper = document.getElementById('codeSnippetWrapper');
+    const snippetCode = document.getElementById('projectSnippet');
+
+    if (project.codeSnippet) {
+        snippetWrapper.style.display = 'block';
+        snippetCode.textContent = project.codeSnippet; 
+        snippetCode.removeAttribute('data-highlighted');
+        hljs.highlightElement(snippetCode); 
+    } else {
+        snippetWrapper.style.display = 'none';
     }
 
     // 3. Features List
