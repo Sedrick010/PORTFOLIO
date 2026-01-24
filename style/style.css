@@ -251,10 +251,10 @@ footer {
 /* --- 4. BUTTONS --- */
 .btn-group { display: flex; gap: 1rem; }
 .btn-primary {
-    display: inline-flex;       /* Allows flex alignment for icon + text */
-    align-items: center;        /* Vertically center icon */
-    justify-content: center;    /* Center content */
-    gap: 0.6rem;                /* Space between icon and text */
+    display: inline-flex;       
+    align-items: center;        
+    justify-content: center;    
+    gap: 0.6rem;                
     
     padding: 0.9rem 2.2rem; 
     border-radius: 50px; 
@@ -267,11 +267,10 @@ footer {
     text-decoration: none; /* Ensure no underline on hover */
 }
 
-/* New Class for the Icons */
 .btn-icon {
     width: 1.2rem;
     height: 1.2rem;
-    fill: currentColor; /* Uses the button's text color (white) */
+    fill: currentColor; 
 }
 .btn-primary:hover { background: var(--primary-dark); border-color: var(--primary-dark); transform: translateY(-2px); }
 .btn-outline { display: inline-block; padding: 0.9rem 2.2rem; border-radius: 50px; background: transparent; color: var(--text-light); border: 2px solid var(--border-color); font-weight: 600; transition: var(--transition); cursor: pointer; }
@@ -345,18 +344,14 @@ footer {
 .card-info p { color: var(--text-gray); font-size: 0.95rem; margin-bottom: 1rem; line-height: 1.5; }
 
 .btn-card {
-    display: block;          /* Behave like a block to accept margins */
-    width: 30%;              /* Set a relative width (adjust as needed) */
-    
-    /* THE FIX: Auto margins center the element horizontally */
+    display: block;          
+    width: 30%;               
     margin: 1rem auto 0 auto; 
-    
     padding: 0.8rem;         
     background: transparent; 
     color: var(--primary-color);            
     border: 2px solid var(--primary-color);            
     border-radius: 50px;     
-    
     font-size: 0.95rem;
     font-weight: 600;
     text-align: center;      
@@ -410,7 +405,6 @@ footer {
     grid-template-columns: 1.5fr 1fr;
     gap: 0;
     height: 100%; 
-    /* FIX: Stops grid from expanding beyond 90vh */
     min-height: 0; 
 }
 
@@ -425,7 +419,7 @@ footer {
     justify-content: center;
     height: 100%;
     border-right: 1px solid var(--border-color);
-    overflow: hidden; /* Keep images contained */
+    overflow: hidden; 
 }
 
 .main-image-frame { width: 100%; flex: 1; display: flex; align-items: center; justify-content: center; overflow: hidden; }
@@ -438,12 +432,11 @@ footer {
 .project-details {
     padding: 3rem;
     
-    /* SCROLL ENGINE FIXES */
     height: 100%;       
-    overflow-y: auto;   /* Force vertical scrollbar */
+    overflow-y: auto;   
     display: block;     
     
-    /* Prevents scroll from passing to body */
+    
     overscroll-behavior: contain; 
     
     padding-bottom: 6rem;
@@ -512,8 +505,7 @@ footer {
         height: auto; 
         max-height: 95vh; 
         display: block; 
-        overflow-y: auto; /* Allow entire card to scroll on mobile */
-    }
+        overflow-y: auto; 
     
     .project-split {
         display: flex;
@@ -522,7 +514,7 @@ footer {
     }
 
     .project-gallery {
-        height: 400px; /* Fixed image height */
+        height: 400px; 
         flex-shrink: 0;
         border-right: none;
         border-bottom: 1px solid var(--border-color);
@@ -530,7 +522,7 @@ footer {
     
     .project-details {
         height: auto;
-        overflow-y: visible; /* Let content dictate height */
+        overflow-y: visible; 
         padding: 2rem;
         padding-bottom: 6rem;
     }
@@ -562,24 +554,24 @@ footer {
     align-items: center;
     gap: 12px;
     
-    /* Animation Start State */
+    
     transform: translateX(120%); 
     transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     border: 1px solid var(--border-color);
 }
 
 .toast.show {
-    transform: translateX(0); /* Animation End State */
+    transform: translateX(0); 
 }
 /* --- PROJECT DISCLAIMER NOTE --- */
 .project-disclaimer {
     text-align: center;
     max-width: 800px;
-    margin: 4rem auto 0 auto; /* Spacing from the grid */
+    margin: 4rem auto 0 auto; 
     color: var(--text-gray);
     font-size: 0.95rem;
     line-height: 1.6;
-    background: rgba(30, 41, 59, 0.5); /* Subtle background */
+    background: rgba(30, 41, 59, 0.5); 
     padding: 1.5rem;
     border-radius: 12px;
     border: 1px solid var(--border-color);
@@ -603,16 +595,16 @@ footer {
 }
 
 pre {
-    background: #282c34; /* Atom One Dark background */
+    background: #282c34; 
     padding: 1rem;
     border-radius: 10px;
-    overflow-x: auto; /* Adds horizontal scroll for long lines */
+    overflow-x: auto; 
     border: 1px solid var(--border-color);
     box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
 }
 
 code {
-    font-family: 'Fira Code', 'Consolas', monospace; /* Coding fonts */
+    font-family: 'Fira Code', 'Consolas', monospace; 
     font-size: 0.9rem;
     line-height: 1.5;
 }

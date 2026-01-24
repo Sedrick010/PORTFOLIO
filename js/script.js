@@ -99,7 +99,7 @@ const projects = {
         title: "Vet Clinic Management System",
         role: "Lead Backend Developer",
         problem: "Local veterinary clinics were relying on manual paper-based records. This caused slow patient retrieval times, frequent scheduling conflicts, and lost medical history data.",
-        solution: "We built a multi-tenant web system to digitize the entire clinic workflow. The solution centralizes patient records, automates appointment booking with conflict detection, and tracks inventory levels in real-time.",
+        solution: "We built a multi-tenant web system to digitize the entire clinic workflow. The solution is a multi-tenant system that offers separate database each tenant to handle their individual patient records, appointments, and inventory.",
         features: [
             "Multi-tenant architecture for multiple clinics",
             "Subscription-based access",
@@ -319,7 +319,6 @@ window.onclick = function(event) {
 function copyEmail() {
     const email = "2201103327@student.buksu.edu.ph";
     
-    // Method 1: Modern API (Works on live websites/HTTPS)
     if (navigator.clipboard && window.isSecureContext) {
         navigator.clipboard.writeText(email).then(() => {
             showToast("Email copied to clipboard! 📧");
@@ -328,7 +327,6 @@ function copyEmail() {
             fallbackCopy(email);
         });
     } else {
-        // Method 2: Fallback (Works on local files/file://)
         fallbackCopy(email);
     }
 }
@@ -336,8 +334,6 @@ function copyEmail() {
 function fallbackCopy(text) {
     const textArea = document.createElement("textarea");
     textArea.value = text;
-    
-    // Ensure it's not visible but part of the DOM
     textArea.style.position = "fixed";
     textArea.style.left = "-9999px";
     textArea.style.top = "0";
@@ -364,7 +360,6 @@ function fallbackCopy(text) {
 function showToast(message) {
     let container = document.getElementById('toast-container');
     
-    // Safety check: Create container if missing
     if (!container) {
         container = document.createElement('div');
         container.id = 'toast-container';
@@ -377,7 +372,6 @@ function showToast(message) {
     
     container.appendChild(toast);
     
-    // Animation timing
     requestAnimationFrame(() => {
         toast.classList.add('show');
     });
