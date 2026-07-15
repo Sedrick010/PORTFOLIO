@@ -27,8 +27,8 @@
             <ul class="nav-links">
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#certifications" class="nav-link">Certifications</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#certifications" class="nav-link">Certifications</a></li>
             </ul>
         </div>
     </header>
@@ -38,12 +38,20 @@
             <div class="hero-text">
                 <h2 class="subtitle reveal">Hello, I am</h2>
                 <h1 class="giant-name reveal delay-100">Sedrick James<br><span class="highlight">Camiguing</span></h1>
-                <h3 class="role-text reveal delay-200">Aspiring Web Developer & IT Specialist</h3>
+                <h3 class="role-text reveal delay-200">
+                    <span class="typing-text" data-typing="Web Developer and UI/UX Designer"></span>
+                    <span class="typing-caret" aria-hidden="true"></span>
+                </h3>
                 <p class="hero-desc reveal delay-300">
-                    A 4th-year IT student passionate about bridging the gap between complex backend logic and  user-friendly interfaces.
+                    A recent IT graduate passionate about bridging the gap between complex backend logic and user-friendly interfaces.
                 </p>
+                <div class="hero-badges reveal delay-300">
+                    <span class="hero-badge"><i class='bx bxs-graduation'></i> Cum Laude, IT</span>
+                    <span class="hero-badge"><i class='bx bx-code-alt'></i> Web Systems OJT</span>
+                    <span class="hero-badge"><i class='bx bx-briefcase-alt'></i> Open to Work</span>
+                </div>
                 <div class="btn-group reveal delay-400">
-                    <button onclick="openCV()" class="btn-primary">View CV</button>
+                    <button onclick="openCV()" class="btn-primary">View Resume</button>
                     <a href="mailto:2201103327@student.buksu.edu.ph" class="btn-outline">Contact Me</a>
                 </div>
             </div>
@@ -60,7 +68,7 @@
                 </div>
                 <div class="bio-text reveal delay-100">
                     <p>
-                        I am a <strong>4th-year IT student</strong> at <strong>Bukidnon State University</strong>. My journey started with basic curiosity but quickly evolved into a pursuit of <strong>Networking</strong> and <strong>Web Development</strong>. 
+                        I'm a recent <strong>IT graduate (Cum Laude)</strong> from <strong>Bukidnon State University</strong>. My journey started with basic curiosity but quickly evolved into a pursuit of <strong>Web Development</strong>, sharpened through hands-on systems work during my OJT.
                     </p>
                 </div>
             </div>
@@ -79,14 +87,6 @@
                         </div>
                     </div>
                     <div class="skill-category">
-                        <h3>Networking & IT</h3>
-                        <div class="tags">
-                            <span class="skill-tag">Cisco Packet Tracer</span>
-                            <span class="skill-tag">VLAN</span>
-                            <span class="skill-tag">Hardware Troubleshooting</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
                         <h3>Database</h3>
                         <div class="tags">
                             <span class="skill-tag">MySQL</span>
@@ -95,18 +95,71 @@
                     </div>
                 </div>
                 <div class="skills-section">
-                    <h2>Soft Skills</h2>
-                    <div class="soft-grid">
-                        <div class="soft-card"><h3>Work Ethic</h3></div>
-                        <div class="soft-card"><h3>Analytical Thinking</h3></div>
-                        <div class="soft-card"><h3>Adaptability</h3></div>
-                        <div class="soft-card"><h3>Problem Solving</h3></div>
+                    <h2>What I Bring</h2>
+                    <div class="highlight-cards">
+                        <div class="highlight-card">
+                            <i class='bx bx-briefcase-alt-2'></i>
+                            <h3>Web Systems OJT</h3>
+                            <p>Built and maintained production-facing modules across full-stack web systems, working directly with real users and requirements.</p>
+                        </div>
+                        <div class="highlight-card">
+                            <i class='bx bx-git-branch'></i>
+                            <h3>Multi-Stack Fluency</h3>
+                            <p>Comfortable moving between MERN and Laravel/MySQL stacks depending on what the project actually needs.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-       <section id="certifications" class="reveal">
+        <section id="projects" class="reveal">
+            <div class="page-title">
+                <h1>My Projects</h1>
+                <span></span>
+            </div>
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web Systems</button>
+                <button class="filter-btn" data-filter="uiux">UI/UX Design</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-card reveal" data-category="web" onclick="openProject('vet')">
+                    <div class="clickable-image">
+                        <img src="images/vet.png" alt="Vet Clinic">
+                    </div>
+                    <div class="card-info">
+                        <h3>Vet Clinic System</h3>
+                        <p>Multi-tenant web system for veterinary clinics.</p>
+                        <button class="btn-card">View Details</button>
+                    </div>
+                </div>
+                <div class="portfolio-card reveal delay-200" data-category="web" onclick="openProject('dental')">
+                    <div class="clickable-image">
+                        <img src="images/dental.png" alt="Dental Clinic">
+                    </div>
+                    <div class="card-info">
+                        <h3>Unicare</h3>
+                        <p>Management system for BukSU Dental Clinic.</p>
+                        <button class="btn-card">View Details</button>
+                    </div>
+                </div>
+                <div class="portfolio-card reveal delay-400" data-category="web" onclick="openProject('passo')">
+                    <div class="clickable-image">
+                        <img src="images/passo.png" alt="Passo">
+                    </div>
+                    <div class="card-info">
+                        <h3>PAssO File System</h3>
+                        <p>Web-based file management system for the PAssO office.</p>
+                        <button class="btn-card">View Details</button>
+                    </div>
+                </div>
+            </div>
+            <p class="project-disclaimer">
+                <strong>Note:</strong> You can visit the repositories to view source codes. Please be aware that some projects may be private or hosted in the repositories of collaborators.
+            </p>
+        </section>
+
+        <section id="certifications" class="reveal">
             <div class="page-title">
                 <h1>Credentials</h1>
                 <span></span>
@@ -151,57 +204,19 @@
             </div>
         </section>
 
-        <section id="projects" class="reveal">
+        <section id="Contact" class="reveal">
             <div class="page-title">
-                <h1>My Projects</h1>
+                <h1>Contact Me</h1>
                 <span></span>
             </div>
-            <div class="filter-container">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="web">Web Systems</button>
-                <button class="filter-btn" data-filter="uiux">UI/UX Design</button>
+            <div id="mail" >
+                <p>Get in touch</p>
             </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-card reveal" data-category="web" onclick="openProject('vet')">
-                    <div class="clickable-image">
-                        <img src="images/vet.png" alt="Vet Clinic">
-                    </div>
-                    <div class="card-info">
-                        <h3>Vet Clinic System</h3>
-                        <p>Multi-tenant web system for veterinary clinics.</p>
-                        <button class="btn-card">View Details</button>
-                    </div>
-                </div>
-                <div class="portfolio-card reveal delay-200" data-category="web" onclick="openProject('dental')">
-                    <div class="clickable-image">
-                        <img src="images/dental.png" alt="Dental Clinic">
-                    </div>
-                    <div class="card-info">
-                        <h3>Unicare</h3>
-                        <p>Management system for BukSU Dental Clinic.</p>
-                        <button class="btn-card">View Details</button>
-                    </div>
-                </div>
-                <div class="portfolio-card reveal delay-400" data-category="uiux" onclick="openProject('innovaride')">
-                    <div class="clickable-image">
-                        <img src="images/innovaride.png" alt="Innovaride">
-                    </div>
-                    <div class="card-info">
-                        <h3>Innovaride</h3>
-                        <p>High-fidelity prototype for transportation app.</p>
-                        <button class="btn-card">View Details</button>
-                    </div>
-                </div>
-            </div>
-            <p class="project-disclaimer">
-                <strong>Note:</strong> You can visit the repositories to view source codes. Please be aware that some projects may be private or hosted in the repositories of collaborators.
-            </p>
         </section>
+
+
     </main>
 
-    <footer>
-        <p>&copy; 2026 Sedrick James Camiguing.</p>
-    </footer>
 
     <div id="projectModal" class="modal project-modal">
         <div class="modal-content project-content">
@@ -251,15 +266,19 @@
         <img class="modal-content" id="modalImg">
     </div>
 
-    <div id="cvModal" class="modal">
+    <div id="cvModal" class="modal">    
         <span class="close" onclick="closeCV()">&times;</span>
         <div class="cv-scroll-container">
             <img src="./images/resume.png" alt="My Resume" class="resume-preview">
-            <a href="resume.pdf" download="Sedrick_Camiguing_CV" class="btn-download-floating">
+            <a href="Sedrick_Camiguing_dev-Resume.pdf" download="Sedrick_Camiguing_CV" class="btn-download-floating">
                 <span class="icon">⬇</span> Download PDF
             </a>
         </div>
-    </div> 
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Sedrick James Camiguing.</p>
+    </footer>
 
     <div id="toast-container"></div>
     <script src="js/script.js"></script>

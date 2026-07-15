@@ -80,6 +80,45 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // --- 6. TYPING LOOP ---
+    const typingTarget = document.querySelector('[data-typing]');
+    const typingCaret = document.querySelector('.typing-caret');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (typingTarget) {
+        const fullText = typingTarget.getAttribute('data-typing') || '';
+
+        if (prefersReducedMotion) {
+            typingTarget.textContent = fullText;
+            if (typingCaret) {
+                typingCaret.style.display = 'none';
+            }
+        } else {
+            let index = 0;
+            let isDeleting = false;
+
+            const typeLoop = () => {
+                typingTarget.textContent = fullText.substring(0, index);
+
+                if (!isDeleting && index < fullText.length) {
+                    index += 1;
+                    setTimeout(typeLoop, 70);
+                } else if (!isDeleting && index === fullText.length) {
+                    isDeleting = true;
+                    setTimeout(typeLoop, 1400);
+                } else if (isDeleting && index > 0) {
+                    index -= 1;
+                    setTimeout(typeLoop, 45);
+                } else {
+                    isDeleting = false;
+                    setTimeout(typeLoop, 500);
+                }
+            };
+
+            typeLoop();
+        }
+    }
 });
 
 // --- HELPER FUNCTIONS (Better Scroll Lock) ---
@@ -106,17 +145,8 @@ const projects = {
             "Role-based dashboards (Admin, Clinics)"
         ],
         tech: ["PHP (Laravel)", "MySQL", "Blade", "Tailwind CSS"],
-        codeSnippet: `// Example: Middleware for Admin Role Check (AdminMiddleware.php)
-             public function handle(Request $request, Closure $next): Response
-             {
-                if (!Auth::check() || Auth::user()->role !== 'admin') {
-             abort(403, 'Unauthorized action. Only administrators can access this area.');
-             }
-
-            return $next($request);
-            }`,
         link: "https://github.com/Sedrick010/Vet-Clinic-Management-System/tree/INTEGRATION",
-        images: ["images/vet.png", "images/vet_ss1.png", "images/vet_ss2.png"] 
+        images: ["images/vet.png"] 
     },
     'dental': {
         category: 'web',
@@ -130,59 +160,23 @@ const projects = {
             "Google Services Integration"
         ],
         tech: ["MongoDB", "Express JS", "React", "Node.js"],
-        codeSnippet: `// Example: Admin adding inventory item (adminServices.js)
-             async function addInventoryItem(req, res) 
-        {
-                const lockKey = 'inventory-operation';
-    
-            try {
-                 // Try to acquire lock
-                const lockStatus = await lockService.acquireLock(lockKey, req.user._id);
-                if (lockStatus.locked) {
-                  return res.status(423).json({
-                     message: 'Another admin is currently modifying inventory. Please try again later.',
-                    remainingTime: lockStatus.remainingTime
-                });
-            }
-
-                const inventoryData = req.body;
-                const newItem = new Inventory(inventoryData);
-                await newItem.save();
-
-                // Log activity only for write operations
-                await logActivity({
-                    userId: req.user._id,
-                    userRole: 'admin',
-                    action: 'addInventoryItem',
-                    details: { itemId: newItem._id, itemName: newItem.itemName }
-                });
-
-                // Release lock
-                await lockService.releaseLock(lockKey, req.user._id);
-                return res.status(201).json(newItem);
-                } catch (error) {
-                // Make sure to release lock even if there's an error
-                await lockService.releaseLock(lockKey, req.user._id);
-                res.status(500).json({ message: 'Failed to add inventory item: ' + error.message });
-                }
-            }`,
         link: "https://github.com/JhonLesterY/20241_T145_Dental-Clinic-Management-System",
-        images: ["images/dental.png", "images/dental_ss1.png", "images/dental_ss2.png", "images/dental_ss3.png", "images/dental_ss4.png"]
+        images: ["images/dental.png"]
     },
-    'innovaride': {
-        category: 'uiux',
-        title: "Innovaride Prototype",
-        role: "Co-Designer",
-        problem: "Commuters in Malaybalay face anxiety and delays due to unpredictable transportation schedules and a lack of clear route information.",
-        solution: "Designed a high-fidelity mobile application prototype that solves the information gap. The design provides real-time vehicle tracking and clear route visualization to reduce commuter uncertainty.",
+    'passo': {
+        category: 'web',
+        title: "PAssO File System",
+        role: "Co-Developer",
+        problem: "The PAssO office lacked a centralized digital file management system, leading to inefficiencies in handling documents and coordinating between divisions.",
+        solution: "Developed a web-based file system to handle digital file storing, automated computations, and document upload. The system provides a reliable platform to ease the task of 4 main divisions of the PAssO office.",
         features: [
-            "User-Centric Journey Mapping",
-            "High-Fidelity Interactive Mockups",
-            "Accessibility-First Design System"
+            "Role-based Access Control",
+            "Strict Concurrency Control",
+            "User-friendly Interface"
         ],
-        tech: ["Figma"],
-        link: "https://www.figma.com/design/JAbo8Li14NcL9aaTNNsVwC/InnovaRide--Efficient-Transportation",
-        images: ["images/innovaride.png", "images/innovaride_ss1.png", "images/innovaride_ss2.png"]
+        tech: ["Laravel", "MySQL", "TypeScript/React", "Laragon"],
+        link: "",
+        images: ['images/passo.png']
     }
 };
 
