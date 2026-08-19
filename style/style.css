@@ -1192,6 +1192,122 @@ code {
 .delay-400 {
   transition-delay: 0.4s;
 }
+/* --- 9. CONTACT --- */
+.contact-wrapper {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-intro {
+  color: var(--text-gray);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: var(--space-8);
+}
+.contact-intro strong {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.contact-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-8);
+  overflow: hidden;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+.contact-row:hover,
+.contact-row:focus-visible {
+  background: rgba(249, 115, 22, 0.06);
+}
+
+.contact-row-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  text-align: left;
+}
+.contact-row-left i {
+  font-size: 1.6rem;
+  color: var(--primary-color);
+}
+
+.contact-label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-gray);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 2px;
+}
+.contact-value {
+  display: block;
+  font-size: 1rem;
+  color: var(--text-light);
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.contact-copy-icon {
+  font-size: 1.3rem;
+  color: var(--text-gray);
+  flex-shrink: 0;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+.contact-row:hover .contact-copy-icon {
+  color: var(--primary-color);
+  transform: scale(1.1);
+}
+
+.contact-socials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-8);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--text-light);
+  border: 2px solid var(--border-color);
+  font-weight: 600;
+  transition: var(--transition);
+}
+.social-btn i {
+  font-size: 1.2rem;
+}
+.social-btn:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .contact-socials {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .contact-socials .social-btn,
+  .contact-socials .btn-primary {
+    justify-content: center;
+  }
+}
 
 @keyframes float {
   0% {
