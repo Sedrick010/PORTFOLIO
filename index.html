@@ -3,312 +3,603 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sedrick | Portfolio</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-weight='bold' font-family='sans-serif' fill='%233b82f6'>S</text></svg>">
+    <title>Sedrick James Camiguing | Full-Stack Software Engineer</title>
+    <meta name="description" content="Full-stack developer specializing in React, Node.js, and Laravel. I build production-ready administrative systems, clinical workflows, and scalable multi-tenant platforms.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23090d16'/><text y='.75em' x='50%' text-anchor='middle' font-size='60' font-weight='800' font-family='monospace' fill='%2338bdf8'>S</text></svg>">
     <link rel="stylesheet" href="style/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
 </head>
 <body>
-    
-    
-    <div id="preloader">
-        <div class="loader-spinner"></div>
-    </div>
 
+    <!-- Top Navigation Header -->
     <header>    
         <div class="nav-container">
-            <a href="#home" class="logo">SJC</a>
-            <div class="menu-toggle" id="mobile-menu">☰</div>
+            <a href="#home" class="logo">
+                <span class="logo-bracket">&lt;</span>SJC<span class="logo-bracket"> /&gt;</span>
+            </a>
+            <button class="menu-toggle" id="mobile-menu" aria-label="Toggle navigation menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </button>
             <ul class="nav-links">
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#certifications" class="nav-link">Certifications</a></li>
+                <li><a href="#certifications" class="nav-link">Credentials</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </div>
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section id="home" class="hero-split">
             <div class="hero-text">
-                <h2 class="subtitle reveal">Hello, I am</h2>
-                <h1 class="giant-name reveal delay-100">Sedrick James<br><span class="highlight">Camiguing</span></h1>
-                <h3 class="role-text reveal delay-200">
-                    <span class="typing-text" data-typing="Web Developer and UI/UX Designer"></span>
+                <!-- Availability Status Pill -->
+                <div class="status-pill reveal">
+                    <span class="beacon">
+                        <span class="beacon-ping"></span>
+                        <span class="beacon-dot"></span>
+                    </span>
+                    <span>Available for full-time & remote roles</span>
+                </div>
+
+                <div class="hero-greeting reveal delay-100">// SOFTWARE ENGINEER & SYSTEMS DEVELOPER</div>
+                <h1 class="hero-name reveal delay-100">
+                    Sedrick James<br><span class="gradient-text">Camiguing</span>
+                </h1>
+                
+                <div class="hero-role-wrapper reveal delay-200">
+                    <span class="typing-text" data-typing="Full-Stack Software Engineer"></span>
                     <span class="typing-caret" aria-hidden="true"></span>
-                </h3>
+                </div>
+
                 <p class="hero-desc reveal delay-300">
-                    A recent IT graduate passionate about bridging the gap between complex backend logic and user-friendly interfaces.
+                    Full-stack developer specializing in <strong>React</strong>, <strong>Node.js</strong>, and <strong>Laravel</strong>. I build production-ready administrative systems, clinical workflows, and scalable multi-tenant platforms.
                 </p>
+
                 <div class="hero-badges reveal delay-300">
-                    <span class="hero-badge"><i class='bx bxs-graduation'></i> Cum Laude, IT</span>
-                    <span class="hero-badge"><i class='bx bx-code-alt'></i> Web Systems OJT</span>
-                    <span class="hero-badge"><i class='bx bx-briefcase-alt'></i> Open to Work</span>
+                    <span class="metadata-badge">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+                        Cum Laude, IT (BukSU)
+                    </span>
+                    <span class="metadata-badge">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                        Web Systems OJT Experience
+                    </span>
+                    <span class="metadata-badge">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                        Multi-Tenant Architecture
+                    </span>
                 </div>
+
                 <div class="btn-group reveal delay-400">
-                    <button onclick="openCV()" class="btn-primary">View Resume</button>
-                    <a href="mailto:2201103327@student.buksu.edu.ph" class="btn-outline">Contact Me</a>
+                    <button onclick="openCV()" class="btn-primary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        View Resume
+                    </button>
+                    <a href="#contact" class="btn-outline">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        Get In Touch
+                    </a>
                 </div>
             </div>
+
             <div class="hero-image-container reveal delay-200">
-                <img src="images/pic.png" alt="Profile" class="profile-photo">
-            </div>
-        </section>
-
-        <section id="about" class="reveal">
-            <div class="about-hero">
-                <div class="page-title reveal">
-                    <h1>About Me</h1>
-                    <span></span>
-                </div>
-                <div class="bio-text reveal delay-100">
-                    <p>
-                        I'm a recent <strong>IT graduate (Cum Laude)</strong> from <strong>Bukidnon State University</strong>. My journey started with basic curiosity but quickly evolved into a pursuit of <strong>Web Development</strong>, sharpened through hands-on systems work during my OJT.
-                    </p>
-                </div>
-            </div>
-
-            <div class="about-split reveal delay-200">
-                <div class="skills-section">
-                    <h2>Technical Stack</h2>
-                    <div class="skill-category">
-                        <h3>Development</h3>
-                        <div class="tags">
-                            <span class="skill-tag">HTML/CSS</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">React.js</span>
-                            <span class="skill-tag">Node.js</span>
-                            <span class="skill-tag">Laravel</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Database</h3>
-                        <div class="tags">
-                            <span class="skill-tag">MySQL</span>
-                            <span class="skill-tag">MongoDB</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="skills-section">
-                    <h2>What I Bring</h2>
-                    <div class="highlight-cards">
-                        <div class="highlight-card">
-                            <i class='bx bx-briefcase-alt-2'></i>
-                            <h3>Web Systems OJT</h3>
-                            <p>Built and maintained production-facing modules across full-stack web systems, working directly with real users and requirements.</p>
-                        </div>
-                        <div class="highlight-card">
-                            <i class='bx bx-git-branch'></i>
-                            <h3>Multi-Stack Fluency</h3>
-                            <p>Comfortable moving between MERN and Laravel/MySQL stacks depending on what the project actually needs.</p>
-                        </div>
-                    </div>
+                <div class="photo-wrapper">
+                    <div class="photo-glow"></div>
+                    <img src="images/pic.png" alt="Sedrick James Camiguing" class="profile-photo">
                 </div>
             </div>
         </section>
 
-        <section id="projects" class="reveal">
-            <div class="page-title">
-                <h1>My Projects</h1>
-                <span></span>
+        <!-- About & Skills Matrix -->
+        <section id="about">
+            <div class="section-header reveal">
+                <div class="section-tag">// 01. TECHNICAL EXPERTISE</div>
+                <h2 class="section-title">Engineering Architecture & Stack</h2>
+                <p class="section-desc">
+                    Recent <strong>IT graduate (Cum Laude)</strong> from <strong>Bukidnon State University</strong>. Focused on architecting scalable web applications, robust database schemas, and dependable clinical administrative systems.
+                </p>
             </div>
-            <div class="filter-container">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="web">Web Systems</button>
-                <button class="filter-btn" data-filter="uiux">UI/UX Design</button>
-            </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-card reveal" data-category="web" onclick="openProject('vet')">
-                    <div class="clickable-image">
-                        <img src="images/vet.png" alt="Vet Clinic">
+
+            <div class="about-grid">
+                <!-- 3-Pillar Skills Matrix -->
+                <div class="skills-matrix-wrapper reveal delay-100">
+                    <!-- Column 1: Frontend & Backend Development -->
+                    <div class="skill-category-card">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                            </div>
+                            <h3>Frontend & Backend</h3>
+                        </div>
+                        <div class="skill-tags-group">
+                            <span class="skill-pill">React.js</span>
+                            <span class="skill-pill">Node.js</span>
+                            <span class="skill-pill">Laravel</span>
+                            <span class="skill-pill">PHP</span>
+                            <span class="skill-pill">JavaScript (ES6+)</span>
+                            <span class="skill-pill">TypeScript</span>
+                            <span class="skill-pill">Express.js</span>
+                            <span class="skill-pill">HTML5 / CSS3</span>
+                            <span class="skill-pill">Tailwind CSS</span>
+                            <span class="skill-pill">Blade Engine</span>
+                        </div>
                     </div>
-                    <div class="card-info">
-                        <h3>Vet Clinic System</h3>
-                        <p>Multi-tenant web system for veterinary clinics.</p>
-                        <button class="btn-card">View Details</button>
+
+                    <!-- Column 2: Database & Data Modeling -->
+                    <div class="skill-category-card">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+                            </div>
+                            <h3>Database & Storage</h3>
+                        </div>
+                        <div class="skill-tags-group">
+                            <span class="skill-pill">MySQL</span>
+                            <span class="skill-pill">MongoDB</span>
+                            <span class="skill-pill">Relational Schema Design</span>
+                            <span class="skill-pill">Multi-Tenant Isolation</span>
+                            <span class="skill-pill">Query Optimization</span>
+                            <span class="skill-pill">Indexing & Migrations</span>
+                            <span class="skill-pill">Redis Caching</span>
+                        </div>
+                    </div>
+
+                    <!-- Column 3: Tools & Architecture -->
+                    <div class="skill-category-card">
+                        <div class="category-header">
+                            <div class="category-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                            </div>
+                            <h3>Tools & Architecture</h3>
+                        </div>
+                        <div class="skill-tags-group">
+                            <span class="skill-pill">Git & GitHub</span>
+                            <span class="skill-pill">RESTful APIs</span>
+                            <span class="skill-pill">Docker</span>
+                            <span class="skill-pill">Linux / WSL</span>
+                            <span class="skill-pill">Postman</span>
+                            <span class="skill-pill">MVC Architecture</span>
+                            <span class="skill-pill">Role-Based Access (RBAC)</span>
+                            <span class="skill-pill">Laragon Staging</span>
+                        </div>
                     </div>
                 </div>
-                <div class="portfolio-card reveal delay-200" data-category="web" onclick="openProject('dental')">
-                    <div class="clickable-image">
-                        <img src="images/dental.png" alt="Dental Clinic">
+
+                <!-- Engineering Focus Highlights -->
+                <div class="engineering-focus-grid reveal delay-200">
+                    <div class="focus-card">
+                        <div class="focus-card-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                        </div>
+                        <h4>Clinical & Admin Workflows</h4>
+                        <p>Designed and deployed operational systems for dental and veterinary clinics, replacing paper logs with atomic slot reservations and audit-ready medical charting.</p>
                     </div>
-                    <div class="card-info">
-                        <h3>Unicare</h3>
-                        <p>Management system for BukSU Dental Clinic.</p>
-                        <button class="btn-card">View Details</button>
+                    <div class="focus-card">
+                        <div class="focus-card-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                        </div>
+                        <h4>Multi-Tenant Architecture</h4>
+                        <p>Implemented dynamic multi-tenant database separation middleware in Laravel, ensuring enterprise tenant privacy, isolated migrations, and cross-branch integrity.</p>
                     </div>
-                </div>
-                <div class="portfolio-card reveal delay-400" data-category="web" onclick="openProject('passo')">
-                    <div class="clickable-image">
-                        <img src="images/passo.png" alt="Passo">
-                    </div>
-                    <div class="card-info">
-                        <h3>PAssO File System</h3>
-                        <p>Web-based file management system for the PAssO office.</p>
-                        <button class="btn-card">View Details</button>
+                    <div class="focus-card">
+                        <div class="focus-card-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        </div>
+                        <h4>Strict Concurrency & RBAC</h4>
+                        <p>Built row-level locking algorithms and division-level access control for government appraisal filing, eliminating collision errors across 4 administrative branches.</p>
                     </div>
                 </div>
             </div>
-            <p class="project-disclaimer">
-                <strong>Note:</strong> You can visit the repositories to view source codes. Please be aware that some projects may be private or hosted in the repositories of collaborators.
-            </p>
         </section>
 
-        <section id="certifications" class="reveal">
-            <div class="page-title">
-                <h1>Credentials</h1>
-                <span></span>
+        <!-- Projects & Case Studies -->
+        <section id="projects">
+            <div class="section-header reveal">
+                <div class="section-tag">// 02. CASE STUDIES & SYSTEMS</div>
+                <h2 class="section-title">Production Systems & Architecture</h2>
+                <p class="section-desc">
+                    Detailed engineering breakdowns of production administrative systems, clinical platforms, and multi-tenant architectures.
+                </p>
             </div>
 
-            <div class="cert-grid">
-                <div class="cert-card clickable-card reveal" onclick="openModal('images/topcit.png')">
-                    <h3>TOPCIT</h3>
-                    <p>Competency Certificate (Lvl 2)</p>
-                    <span class="view-link">View Certificate <i class='bx bx-right-arrow-alt'></i></span>
+            <!-- Filter Controls -->
+            <div class="projects-header-actions reveal delay-100">
+                <button class="filter-pill active" data-filter="all">All Systems</button>
+                <button class="filter-pill" data-filter="web">Production Platforms</button>
+            </div>
+
+            <!-- Embla Carousel & Responsive Cards -->
+            <div class="embla reveal delay-200">
+                <div class="embla__viewport">
+                    <div class="embla__container">
+
+                        <!-- Project 1: Vet Clinic System -->
+                        <div class="embla__slide">
+                            <div class="project-card" data-category="web">
+                                <div class="card-media" onclick="openProject('vet')">
+                                    <div class="card-badge-overlay">
+                                        <span class="badge-tag badge-enterprise">Multi-Tenant</span>
+                                        <span class="badge-tag badge-live">Live System</span>
+                                    </div>
+                                    <img src="images/vet.png" alt="Vet Clinic Management System">
+                                </div>
+                                <div class="card-content">
+                                    <h3>Vet Clinic System</h3>
+                                    <ul class="engineering-breakdown">
+                                        <li class="breakdown-item">
+                                            <span class="breakdown-label">Context & Problem</span>
+                                            Local veterinary practices faced severe manual delays, patient record loss, and appointment conflicts using paper ledgers.
+                                        </li>
+                                        <li class="breakdown-item">
+                                            <span class="breakdown-label">Technical Architecture</span>
+                                            Dynamic multi-tenant schema isolation in Laravel 10 with MySQL connection routing per tenant and granular RBAC.
+                                        </li>
+                                        <li class="breakdown-item">
+                                            <span class="breakdown-label">Impact & Access</span>
+                                            Production platform managing appointments, medical history charting, and automated billing across clinics.
+                                        </li>
+                                    </ul>
+                                    <div class="card-tech-stack">
+                                        <span class="tech-badge">Laravel 10</span>
+                                        <span class="tech-badge">MySQL</span>
+                                        <span class="tech-badge">PHP</span>
+                                        <span class="tech-badge">Tailwind CSS</span>
+                                        <span class="tech-badge">Redis</span>
+                                    </div>
+                                    <button class="btn-card-action" onclick="openProject('vet')">
+                                        View Architecture & Details →
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 2: Unicare Dental System -->
+                        <div class="embla__slide">
+                            <div class="project-card" data-category="web">
+                                <div class="card-media" onclick="openProject('dental')">
+                                    <div class="card-badge-overlay">
+                                        <span class="badge-tag badge-live">Clinical Workflow</span>
+                                        <span class="badge-tag badge-oss">Open Source</span>
+                                    </div>
+                                    <img src="images/dental.png" alt="Unicare Dental Clinic System">
+                                </div>
+                                <div class="card-content">
+                                    <h3>Unicare Dental System</h3>
+                                    <ul class="engineering-breakdown">
+                                        <li class="breakdown-item">
+                                            <span class="breakdown-label">Context & Problem</span>
+                                            University dental clinic struggled with physical appointment queue chaos and manual consumable supply tracking.
+                                        </li>
+                                        <li class="breakdown-item">
+                                            <span class="breakdown-label">Technical Architecture</span>
+                                            MERN stack platform with atomic queue conflict detection, JWT student authentication, and server-side PDF auditing.
+                                        </li>
+                                        <li class="breakdown-item">
+                                            <span class="breakdown-label">Impact & Access</span>
+                                            Engineered for university medical services handling hundreds of active student bookings each semester.
+                                        </li>
+                                    </ul>
+                                    <div class="card-tech-stack">
+                                        <span class="tech-badge">React.js</span>
+                                        <span class="tech-badge">Node.js</span>
+                                        <span class="tech-badge">Express</span>
+                                        <span class="tech-badge">MongoDB</span>
+                                        <span class="tech-badge">REST API</span>
+                                    </div>
+                                    <button class="btn-card-action" onclick="openProject('dental')">
+                                        View Architecture & Details →
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project 3: PAssO File System -->
+                        <div class="embla__slide">
+                            <div class="project-card" data-category="web">
+                                <div class="card-media" onclick="openProject('passo')">
+                                    <div class="card-badge-overlay">
+                                        <span class="badge-tag badge-enterprise">Private Enterprise Repo</span>
+                                    </div>
+                                    <img src="images/passo.png" alt="PAssO Enterprise File Management">
+                                </div>
+                                <div class="card-content">
+                                    <h3>PAssO File System</h3>
+                                    <ul class="engineering-breakdown">
+                                        <li class="breakdown-item">
+                                            <span class="breakdown-label">Context & Problem</span>
+                                            Provincial Assessor's Office lacked centralized indexing, leading to file coordination bottlenecks across 4 divisions.
+                                        </li>
+                                        <li class="breakdown-item">
+                                            <span class="breakdown-label">Technical Architecture</span>
+                                            Laravel/React engine with strict row-level optimistic locking, automated tax algorithms, and audit logging.
+                                        </li>
+                                        <li class="breakdown-item">
+                                            <span class="breakdown-label">Impact & Access</span>
+                                            Departmental file routing platform coordinating real property documentation without data collision.
+                                        </li>
+                                    </ul>
+                                    <div class="card-tech-stack">
+                                        <span class="tech-badge">Laravel</span>
+                                        <span class="tech-badge">React.js</span>
+                                        <span class="tech-badge">TypeScript</span>
+                                        <span class="tech-badge">MySQL</span>
+                                        <span class="tech-badge">Laragon</span>
+                                    </div>
+                                    <button class="btn-card-action" onclick="openProject('passo')">
+                                        View Architecture & Details →
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
 
-                <div class="cert-card clickable-card reveal delay-100" onclick="openModal('images/cisco1.png')">
-                    <h3>Cisco CCNA 1</h3>
-                    <p>Introduction to Networks</p>
-                    <span class="view-link">View Certificate <i class='bx bx-right-arrow-alt'></i></span>
-                </div>
-
-                <div class="cert-card clickable-card reveal delay-200" onclick="openModal('images/cisco2.png')">
-                    <h3>Cisco CCNA 2</h3>
-                    <p>Switching, Routing, & Wireless</p>
-                    <span class="view-link">View Certificate <i class='bx bx-right-arrow-alt'></i></span>
-                </div>
-
-                <div class="cert-card clickable-card reveal delay-200" onclick="openModal('images/cisco3.png')">
-                    <h3>Cisco CCNA 3</h3>
-                    <p>Enterprise Networking & Security</p>
-                    <span class="view-link">View Certificate <i class='bx bx-right-arrow-alt'></i></span>
-                </div>
-
-                <div class="cert-card clickable-card reveal delay-300" onclick="openModal('images/cyber.png')">
-                    <h3>Cybersecurity</h3>
-                    <p>Threats and Vulnerabilities</p>
-                    <span class="view-link">View Certificate <i class='bx bx-right-arrow-alt'></i></span>
-                </div>
-
-                <div class="cert-card clickable-card reveal delay-400" onclick="openModal('images/certificate1.png')">
-                    <h3>DICT</h3>
-                    <p>Principles of Design</p>
-                    <span class="view-link">View Certificate <i class='bx bx-right-arrow-alt'></i></span>
+                <div class="embla-controls">
+                    <button class="embla-nav-btn embla__prev" aria-label="Previous project slide">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                    </button>
+                    <div class="embla-dots embla__dots"></div>
+                    <button class="embla-nav-btn embla__next" aria-label="Next project slide">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                    </button>
                 </div>
             </div>
         </section>
 
-       <section id="Contact" class="reveal">
-    <div class="page-title">
-        <h1>Contact Me</h1>
-        <span></span>
-    </div>
+        <!-- Credentials & Certifications -->
+        <section id="certifications">
+            <div class="section-header reveal">
+                <div class="section-tag">// 03. CREDENTIALS & INDUSTRY STANDARDS</div>
+                <h2 class="section-title">Certifications & Competencies</h2>
+                <p class="section-desc">
+                    Validated technical competencies in software development, computer networking, and cybersecurity.
+                </p>
+            </div>
 
-    <div class="contact-wrapper">
-        <p class="contact-intro">
-            I'm currently <strong>open to remote full-stack roles</strong>. Whether you have an opportunity, a project, or just want to talk shop — my inbox is open.
-        </p>
+            <div class="cert-grid reveal delay-100">
+                <div class="cert-card" onclick="openModal('images/topcit.png')">
+                    <div class="cert-header">
+                        <div class="cert-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+                        </div>
+                        <div class="cert-title-group">
+                            <h3>TOPCIT</h3>
+                            <span class="cert-issuer">IITP / DICT</span>
+                        </div>
+                    </div>
+                    <p>Competency Certificate (Level 2) in Test of Practical Competency in ICT & Software Engineering.</p>
+                    <span class="cert-view-link">View Certificate →</span>
+                </div>
 
-        <div class="contact-card">
-            <div class="contact-row" onclick="copyEmail()" role="button" tabindex="0">
-                <div class="contact-row-left">
-                    <i class='bx bx-envelope'></i>
-                    <div>
-                        <span class="contact-label">Email</span>
-                        <span class="contact-value">2201103327@student.buksu.edu.ph</span>
+                <div class="cert-card" onclick="openModal('images/cisco1.png')">
+                    <div class="cert-header">
+                        <div class="cert-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                        </div>
+                        <div class="cert-title-group">
+                            <h3>Cisco CCNA 1</h3>
+                            <span class="cert-issuer">Cisco Networking Academy</span>
+                        </div>
+                    </div>
+                    <p>Introduction to Networks: IPv4/IPv6 addressing, OSI model, Ethernet protocols, and switch configuration.</p>
+                    <span class="cert-view-link">View Certificate →</span>
+                </div>
+
+                <div class="cert-card" onclick="openModal('images/cisco2.png')">
+                    <div class="cert-header">
+                        <div class="cert-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                        </div>
+                        <div class="cert-title-group">
+                            <h3>Cisco CCNA 2</h3>
+                            <span class="cert-issuer">Cisco Networking Academy</span>
+                        </div>
+                    </div>
+                    <p>Switching, Routing, and Wireless Essentials: VLANs, Inter-VLAN routing, STP, EtherChannel, and DHCP.</p>
+                    <span class="cert-view-link">View Certificate →</span>
+                </div>
+
+                <div class="cert-card" onclick="openModal('images/cisco3.png')">
+                    <div class="cert-header">
+                        <div class="cert-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                        </div>
+                        <div class="cert-title-group">
+                            <h3>Cisco CCNA 3</h3>
+                            <span class="cert-issuer">Cisco Networking Academy</span>
+                        </div>
+                    </div>
+                    <p>Enterprise Networking, Security, & Automation: OSPF, ACLs, NAT, WAN concepts, and network virtualization.</p>
+                    <span class="cert-view-link">View Certificate →</span>
+                </div>
+
+                <div class="cert-card" onclick="openModal('images/cyber.png')">
+                    <div class="cert-header">
+                        <div class="cert-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <div class="cert-title-group">
+                            <h3>Cybersecurity</h3>
+                            <span class="cert-issuer">Cisco Academy</span>
+                        </div>
+                    </div>
+                    <p>Threats, Vulnerabilities, and Defensive Measures: Cryptography, secure authentication, and endpoint defense.</p>
+                    <span class="cert-view-link">View Certificate →</span>
+                </div>
+
+                <div class="cert-card" onclick="openModal('images/certificate1.png')">
+                    <div class="cert-header">
+                        <div class="cert-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                        </div>
+                        <div class="cert-title-group">
+                            <h3>DICT</h3>
+                            <span class="cert-issuer">Dept. of ICT</span>
+                        </div>
+                    </div>
+                    <p>Principles of User Interface and Web Experience Design: Semantic hierarchy, accessibility, and visual balance.</p>
+                    <span class="cert-view-link">View Certificate →</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="section-header reveal">
+                <div class="section-tag">// 04. GET IN TOUCH</div>
+                <h2 class="section-title">Let's Connect & Build</h2>
+                <p class="section-desc">
+                    I am actively seeking <strong>full-time full-stack and backend software engineer opportunities</strong> (local or remote).
+                </p>
+            </div>
+
+            <div class="contact-wrapper reveal delay-100">
+                <div class="contact-card">
+                    <div class="contact-row" onclick="copyEmail()" role="button" tabindex="0" aria-label="Copy professional email address">
+                        <div class="contact-row-left">
+                            <div class="contact-icon-box">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            </div>
+                            <div>
+                                <span class="contact-label">Direct Email</span>
+                                <span class="contact-value">sedrickcamiguing.dev@gmail.com</span>
+                            </div>
+                        </div>
+                        <span class="contact-copy-btn">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                            Click to Copy
+                        </span>
                     </div>
                 </div>
-                <i class='bx bx-copy contact-copy-icon'></i>
+
+                <div class="contact-actions">
+                    <a href="https://github.com/Sedrick010" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        GitHub Profile
+                    </a>
+                    <a href="https://www.linkedin.com/in/sedrick-james-camiguing-a7076639b" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        LinkedIn Profile
+                    </a>
+                    <a href="mailto:sedrickcamiguing.dev@gmail.com" class="btn-primary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                        Send an Email
+                    </a>
+                </div>
             </div>
-        </div>
-
-        <div class="contact-socials">
-            <a href="https://github.com/Sedrick010" target="_blank" class="social-btn">
-                <i class='bx bxl-github'></i> GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/sedrick-james-camiguing-a7076639b" target="_blank" class="social-btn">
-                <i class='bx bxl-linkedin-square'></i> LinkedIn
-            </a>
-            <a href="mailto:2201103327@student.buksu.edu.ph" class="btn-primary">
-                <i class='bx bx-send'></i> Send an Email
-            </a>
-        </div>
-    </div>
-</section>
-
-
+        </section>
     </main>
 
-
-    <div id="projectModal" class="modal project-modal">
-        <div class="modal-content project-content">
-            <span class="close" onclick="closeProject()">&times;</span>
-            <div class="project-split">
-                <div class="project-gallery">
-                    <div class="main-image-frame">
-                        <img id="projectMainImg" src="" alt="Project Screenshot">
+    <!-- Comprehensive Project Case Study Modal -->
+    <div id="projectModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="projectTitle">
+        <div class="modal-container project-modal-container">
+            <button class="modal-close-btn" onclick="closeProject()" aria-label="Close project modal">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="project-modal-split">
+                <!-- Gallery Column -->
+                <div class="modal-gallery">
+                    <div class="modal-main-img-frame">
+                        <img id="projectMainImg" src="" alt="Project Visual Preview">
                     </div>
-                    <div class="thumbnail-row" id="projectThumbnails"></div>
+                    <div class="modal-thumb-strip" id="projectThumbnails"></div>
                 </div>
 
-                <div class="project-details">
+                <!-- Details Column -->
+                <div class="modal-details">
                     <h2 id="projectTitle">Project Title</h2>
-                    <div id="projectRole" class="role-badge">Role</div>
+                    <div id="projectRole" class="modal-role-badge">Role</div>
 
-                    <div class="case-study-section">
-                        <h3>The Problem</h3>
-                        <p id="projectProblem">Description of the problem...</p>
-                    </div>
-
-                    <div class="case-study-section">
-                        <h3>The Solution</h3>
-                        <p id="projectSolution">Description of the solution...</p>
-                        <ul id="projectFeatures" class="feature-list"></ul>
+                    <div class="modal-section">
+                        <h3>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                            Problem & Operational Context
+                        </h3>
+                        <p id="projectProblem">Description of the problem context...</p>
                     </div>
 
-                    <div class="tech-stack-box">
-                        <h3>Technologies Used</h3>
-                        <div class="tags" id="projectTech"></div>
-                    </div>
-                    <div class="code-snippet-box" id="codeSnippetWrapper" style="display: none;">
-                        <h3>Code Snippet</h3>
-                        <pre><code class="language-javascript" id="projectSnippet"></code></pre>
+                    <div class="modal-section">
+                        <h3>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                            System Architecture
+                        </h3>
+                        <p id="projectArchitecture">Description of the system architecture...</p>
                     </div>
 
-                    <div class="project-links">
-                        <a id="projectLinkBtn" href="#" target="_blank" class="btn-primary">View Project</a>
+                    <div class="modal-section">
+                        <h3>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                            Key Technical Features
+                        </h3>
+                        <ul id="projectFeatures" class="modal-features-list"></ul>
                     </div>
+
+                    <div class="modal-section">
+                        <h3>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                            Technologies Used
+                        </h3>
+                        <div class="modal-tags" id="projectTech"></div>
+                    </div>
+
+                    <div class="modal-section" id="codeSnippetWrapper" style="display: none;">
+                        <h3>
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                            Architectural Code Implementation
+                        </h3>
+                        <pre style="margin-top: 8px;"><code class="language-javascript" id="projectSnippet"></code></pre>
+                    </div>
+
+                    <div class="modal-actions" id="projectModalActions"></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="imageModal" class="modal">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="modalImg">
-    </div>
-
-    <div id="cvModal" class="modal">    
-        <span class="close" onclick="closeCV()">&times;</span>
-        <div class="cv-scroll-container">
-            <img src="./images/resume.png" alt="My Resume" class="resume-preview">
-            <a href="/Sedrick_Camiguing_Resume.pdf" download="Sedrick_Camiguing_CV" class="btn-download-floating">
-                <span class="icon">⬇</span> Download PDF
-            </a>
+    <!-- Certificate / Image Preview Modal -->
+    <div id="imageModal" class="modal" role="dialog" aria-modal="true" aria-label="Certificate Image Viewer">
+        <div class="modal-container image-modal-container">
+            <button class="modal-close-btn" onclick="closeModal()" aria-label="Close certificate image">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <img id="modalImg" src="" alt="Credential Certificate">
         </div>
     </div>
 
+    <!-- Resume / CV Modal -->
+    <div id="cvModal" class="modal" role="dialog" aria-modal="true" aria-label="Resume Preview Modal">
+        <div class="modal-container cv-modal-container">
+            <button class="modal-close-btn" onclick="closeCV()" aria-label="Close resume viewer">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="cv-scroll-area">
+                <img src="./images/resume.png" alt="Sedrick James Camiguing Resume Preview" class="cv-preview-img">
+            </div>
+            <div class="cv-download-bar">
+                <a href="./resume.pdf" download="Sedrick_Camiguing_CV.pdf" class="btn-primary">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    Download Resume (PDF)
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Sedrick James Camiguing.</p>
+        <p>&copy; 2026 Sedrick James Camiguing. Built with semantic HTML & vanilla CSS.</p>
     </footer>
 
-    <div id="toast-container"></div>
+    <!-- Toast Notification Container -->
+    <div id="toast-container" aria-live="polite"></div>
+
     <script src="js/script.js"></script>
 </body>
 </html>
