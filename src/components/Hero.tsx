@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import TrueFocus from '@/components/TrueFocus';
 
 interface HeroProps {
   onOpenCV: () => void;
@@ -68,23 +69,26 @@ export default function Hero({ onOpenCV }: HeroProps) {
         </div>
 
         <div className="hero-greeting">// SOFTWARE ENGINEER &amp; SYSTEMS DEVELOPER</div>
-        <h1 className="hero-name">
-          Sedrick James
-          <br />
-          <span className="gradient-text">Camiguing</span>
-        </h1>
+        <div className="hero-name-wrapper" style={{ marginBottom: 'var(--space-2)' }}>
+          <h1 className="visually-hidden" style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0, 0, 0, 0)', whiteSpace: 'nowrap', border: 0 }}>
+            Sedrick James Camiguing
+          </h1>
+          <TrueFocus
+            sentence="Sedrick James | Camiguing"
+            separator=" | "
+            manualMode={false}
+            blurAmount={4}
+            borderColor="#38bdf8"
+            glowColor="rgba(56, 189, 248, 0.6)"
+            animationDuration={0.6}
+            pauseBetweenAnimations={1.2}
+          />
+        </div>
 
         <div className="hero-role-wrapper">
           <span className="typing-text">{typedText}</span>
           <span className="typing-caret" aria-hidden="true"></span>
         </div>
-
-        <p className="hero-desc">
-          Full-stack developer specializing in <strong>React</strong>,{' '}
-          <strong>Node.js</strong>, and <strong>Laravel</strong>. I build
-          production-ready administrative systems, clinical workflows, and
-          scalable multi-tenant platforms.
-        </p>
 
         <div className="hero-badges">
           <span className="metadata-badge">

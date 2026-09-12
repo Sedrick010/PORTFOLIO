@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
+import TechStack from '@/components/TechStack';
 import Projects from '@/components/Projects';
 import Certifications from '@/components/Certifications';
 import Contact from '@/components/Contact';
@@ -12,6 +13,7 @@ import ProjectModal from '@/components/ProjectModal';
 import CertificateModal from '@/components/CertificateModal';
 import ResumeModal from '@/components/ResumeModal';
 import Toast, { ToastMessage } from '@/components/Toast';
+import Galaxy from '@/components/Galaxy';
 import { Project } from '@/types';
 
 export default function Home() {
@@ -49,11 +51,42 @@ export default function Home() {
 
   return (
     <>
+      {/* Background Ambient Galaxy Canvas (Theme Matched: Sky Blue & Indigo) */}
+      <div
+        style={{
+          position: 'fixed',
+          inset: 0,
+          width: '100vw',
+          height: '100vh',
+          pointerEvents: 'none',
+          zIndex: 0,
+          opacity: 0.75,
+        }}
+        aria-hidden="true"
+      >
+        <Galaxy
+          mouseRepulsion
+          mouseInteraction
+          density={1.1}
+          glowIntensity={0.35}
+          saturation={0.85}
+          hueShift={210}
+          twinkleIntensity={0.4}
+          rotationSpeed={0.08}
+          repulsionStrength={2}
+          autoCenterRepulsion={0}
+          starSpeed={0.4}
+          speed={0.8}
+          transparent={true}
+        />
+      </div>
+
       <Navbar />
 
-      <main>
+      <main style={{ position: 'relative', zIndex: 1 }}>
         <Hero onOpenCV={() => setIsCVOpen(true)} />
         <About />
+        <TechStack />
         <Projects onSelectProject={(p) => setSelectedProject(p)} />
         <Certifications onSelectCertificate={(img) => setSelectedCertificate(img)} />
         <Contact onShowToast={handleShowToast} />

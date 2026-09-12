@@ -30,9 +30,3 @@ export interface SkillCategory {
   icon: 'code' | 'database' | 'cpu';
   skills: string[];
 }
-
-export interface EngineeringFocus {
-  title: string;
-  icon: 'pulse' | 'layers' | 'lock';
-  description: string;
-}

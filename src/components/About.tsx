@@ -1,164 +1,138 @@
+'use client';
+
 import React from 'react';
-import { skillCategories, engineeringFocusList } from '@/data/skills';
 
 export default function About() {
-  const renderCategoryIcon = (icon: string) => {
-    switch (icon) {
-      case 'code':
-        return (
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <polyline points="16 18 22 12 16 6"></polyline>
-            <polyline points="8 6 2 12 8 18"></polyline>
-          </svg>
-        );
-      case 'database':
-        return (
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-          </svg>
-        );
-      case 'cpu':
-      default:
-        return (
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-            <line x1="6" y1="6" x2="6.01" y2="6"></line>
-            <line x1="6" y1="18" x2="6.01" y2="18"></line>
-          </svg>
-        );
-    }
-  };
-
-  const renderFocusIcon = (icon: string) => {
-    switch (icon) {
-      case 'pulse':
-        return (
-          <svg
-            width="22"
-            height="22"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-          </svg>
-        );
-      case 'layers':
-        return (
-          <svg
-            width="22"
-            height="22"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-            <polyline points="2 17 12 22 22 17"></polyline>
-            <polyline points="2 12 12 17 22 12"></polyline>
-          </svg>
-        );
-      case 'lock':
-      default:
-        return (
-          <svg
-            width="22"
-            height="22"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-          </svg>
-        );
-    }
-  };
-
   return (
     <section id="about">
       <div className="section-header">
-        <div className="section-tag">// 01. TECHNICAL EXPERTISE</div>
-        <h2 className="section-title">Engineering Architecture &amp; Stack</h2>
+        <div className="section-tag">// 01. ABOUT ME</div>
+        <h2 className="section-title">Background &amp; Profile Summary</h2>
         <p className="section-desc">
-          Recent <strong>IT graduate (Cum Laude)</strong> from{' '}
-          <strong>Bukidnon State University</strong>. Focused on architecting
-          scalable web applications, robust database schemas, and dependable
-          clinical administrative systems.
+          Academic foundation, software engineering philosophy, and hands-on systems background.
         </p>
       </div>
 
-      <div className="about-grid">
-        {/* 3-Pillar Skills Matrix */}
-        <div className="skills-matrix-wrapper">
-          {skillCategories.map((category) => (
-            <div key={category.title} className="skill-category-card">
-              <div className="category-header">
-                <div className="category-icon">
-                  {renderCategoryIcon(category.icon)}
-                </div>
-                <h3>{category.title}</h3>
-              </div>
-              <div className="skill-tags-group">
-                {category.skills.map((skill) => (
-                  <span key={skill} className="skill-pill">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
+      <div className="about-summary-layout">
+        {/* Main Narrative Card */}
+        <div className="about-bio-card">
+          <p className="about-bio-lead">
+            I am a <strong>Full-Stack Software Engineer</strong> and recent{' '}
+            <strong>IT graduate (Cum Laude)</strong> from{' '}
+            <strong>Bukidnon State University</strong>. I specialize in architecting
+            production-ready web applications, scalable database systems, and robust
+            administrative platforms.
+          </p>
+
+          <p className="about-bio-text">
+            My development background focuses on engineering mission-critical software:
+            from dynamic multi-tenant schema isolation in veterinary clinic systems, to
+            atomic slot-reservation algorithms with strict conflict detection for
+            university health services, and row-level concurrency locking for provincial
+            property assessment filing.
+          </p>
+
+          <p className="about-bio-text">
+            I bridge clean frontend engineering in <strong>React</strong> and{' '}
+            <strong>Next.js</strong> with battle-tested backend services in{' '}
+            <strong>Node.js</strong> and <strong>Laravel</strong>. Committed to
+            high-integrity code, scalable relational architectures, and dependable user
+            outcomes.
+          </p>
         </div>
 
-        {/* Engineering Focus Highlights */}
-        <div className="engineering-focus-grid">
-          {engineeringFocusList.map((focus) => (
-            <div key={focus.title} className="focus-card">
-              <div className="focus-card-icon">
-                {renderFocusIcon(focus.icon)}
-              </div>
-              <h4>{focus.title}</h4>
-              <p>{focus.description}</p>
+        {/* Structured Highlight Stats */}
+        <div className="about-highlights-grid">
+          <div className="about-stat-card">
+            <div className="about-stat-icon">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
             </div>
-          ))}
+            <h3 className="about-stat-title">Cum Laude Honor</h3>
+            <p className="about-stat-desc">
+              Graduated with academic distinction (BS in Information Technology) from Bukidnon State University.
+            </p>
+          </div>
+
+          <div className="about-stat-card">
+            <div className="about-stat-icon">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <h3 className="about-stat-title">Full-Stack Development</h3>
+            <p className="about-stat-desc">
+              Extensive hands-on experience building reactive UIs and production APIs with Next.js, Node, and Laravel.
+            </p>
+          </div>
+
+          <div className="about-stat-card">
+            <div className="about-stat-icon">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                <line x1="6" y1="18" x2="6.01" y2="18"></line>
+              </svg>
+            </div>
+            <h3 className="about-stat-title">Multi-Tenant Systems</h3>
+            <p className="about-stat-desc">
+              Designed isolated database schema middleware, optimistic concurrency control, and audit-ready pipelines.
+            </p>
+          </div>
+
+          <div className="about-stat-card">
+            <div className="about-stat-icon">
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+              </svg>
+            </div>
+            <h3 className="about-stat-title">Ready for Opportunities</h3>
+            <p className="about-stat-desc">
+              Actively available for full-time and remote software engineering positions locally and globally.
+            </p>
+          </div>
         </div>
       </div>
     </section>

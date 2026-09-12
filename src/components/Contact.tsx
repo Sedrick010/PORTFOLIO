@@ -46,7 +46,7 @@ export default function Contact({ onShowToast }: ContactProps) {
   return (
     <section id="contact">
       <div className="section-header">
-        <div className="section-tag">// 04. GET IN TOUCH</div>
+        <div className="section-tag">// 05. GET IN TOUCH</div>
         <h2 className="section-title">Let&apos;s Connect &amp; Build</h2>
         <p className="section-desc">
           I am actively seeking{' '}

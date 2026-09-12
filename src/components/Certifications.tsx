@@ -1,5 +1,6 @@
 import React from 'react';
 import { certifications } from '@/data/certifications';
+import SpotlightCard from './SpotlightCard';
 
 interface CertificationsProps {
   onSelectCertificate: (imageSrc: string) => void;
@@ -84,7 +85,7 @@ export default function Certifications({ onSelectCertificate }: CertificationsPr
   return (
     <section id="certifications">
       <div className="section-header">
-        <div className="section-tag">// 03. CREDENTIALS &amp; INDUSTRY STANDARDS</div>
+        <div className="section-tag">// 04. CREDENTIALS &amp; INDUSTRY STANDARDS</div>
         <h2 className="section-title">Certifications &amp; Competencies</h2>
         <p className="section-desc">
           Validated technical competencies in software development, computer
@@ -94,9 +95,10 @@ export default function Certifications({ onSelectCertificate }: CertificationsPr
 
       <div className="cert-grid">
         {certifications.map((cert) => (
-          <div
+          <SpotlightCard
             key={cert.id}
             className="cert-card"
+            spotlightColor="rgba(0, 229, 255, 0.2)"
             onClick={() => onSelectCertificate(cert.image)}
             role="button"
             tabIndex={0}
@@ -116,7 +118,7 @@ export default function Certifications({ onSelectCertificate }: CertificationsPr
             </div>
             <p>{cert.description}</p>
             <span className="cert-view-link">View Certificate &rarr;</span>
-          </div>
+          </SpotlightCard>
         ))}
       </div>
     </section>

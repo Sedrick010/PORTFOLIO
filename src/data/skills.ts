@@ -1,4 +1,4 @@
-import { SkillCategory, EngineeringFocus } from '@/types';
+import { SkillCategory } from '@/types';
 
 export const skillCategories: SkillCategory[] = [
   {
@@ -44,26 +44,5 @@ export const skillCategories: SkillCategory[] = [
       'Role-Based Access (RBAC)',
       'Laragon Staging'
     ]
-  }
-];
-
-export const engineeringFocusList: EngineeringFocus[] = [
-  {
-    title: 'Clinical & Admin Workflows',
-    icon: 'pulse',
-    description:
-      'Designed and deployed operational systems for dental and veterinary clinics, replacing paper logs with atomic slot reservations and audit-ready medical charting.'
-  },
-  {
-    title: 'Multi-Tenant Architecture',
-    icon: 'layers',
-    description:
-      'Implemented dynamic multi-tenant database separation middleware in Laravel, ensuring enterprise tenant privacy, isolated migrations, and cross-branch integrity.'
-  },
-  {
-    title: 'Strict Concurrency & RBAC',
-    icon: 'lock',
-    description:
-      'Built row-level locking algorithms and division-level access control for government appraisal filing, eliminating collision errors across 4 administrative branches.'
   }
 ];

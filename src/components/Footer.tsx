@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer>
       <p>
-        &copy; {currentYear} Sedrick James Camiguing. Built with React, Next.js &amp; bespoke CSS.
+        &copy; {currentYear} Sedrick James Camiguing.
       </p>
     </footer>
   );
