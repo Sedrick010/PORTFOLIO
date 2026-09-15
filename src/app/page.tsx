@@ -13,7 +13,6 @@ import ProjectModal from '@/components/ProjectModal';
 import CertificateModal from '@/components/CertificateModal';
 import ResumeModal from '@/components/ResumeModal';
 import Toast, { ToastMessage } from '@/components/Toast';
-import Galaxy from '@/components/Galaxy';
 import { Project } from '@/types';
 
 export default function Home() {
@@ -51,35 +50,6 @@ export default function Home() {
 
   return (
     <>
-      {/* Background Ambient Galaxy Canvas (Theme Matched: Sky Blue & Indigo) */}
-      <div
-        style={{
-          position: 'fixed',
-          inset: 0,
-          width: '100vw',
-          height: '100vh',
-          pointerEvents: 'none',
-          zIndex: 0,
-          opacity: 0.75,
-        }}
-        aria-hidden="true"
-      >
-        <Galaxy
-          mouseRepulsion
-          mouseInteraction
-          density={1.1}
-          glowIntensity={0.35}
-          saturation={0.85}
-          hueShift={210}
-          twinkleIntensity={0.4}
-          rotationSpeed={0.08}
-          repulsionStrength={2}
-          autoCenterRepulsion={0}
-          starSpeed={0.4}
-          speed={0.8}
-          transparent={true}
-        />
-      </div>
 
       <Navbar />
 

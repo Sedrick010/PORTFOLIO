@@ -24,26 +24,7 @@ export const projects: Project[] = [
     ],
     tech: ['Laravel 10', 'MySQL', 'PHP', 'Tailwind CSS', 'Redis', 'REST APIs'],
     link: 'https://github.com/Sedrick010/Vet-Clinic-Management-System/tree/INTEGRATION',
-    images: ['/images/vet.png', '/images/vet_ss1.png', '/images/vet_ss2.png'],
-    codeSnippet: {
-      language: 'php',
-      code: `// Dynamic Multi-Tenant Database Connection Middleware
-public function handle(Request $request, Closure $next)
-{
-    $subdomain = explode('.', $request->getHost())[0];
-    $tenant = Tenant::where('subdomain', $subdomain)->firstOrFail();
-    
-    // Purge and reconfigure tenant connection dynamically
-    Config::set('database.connections.tenant.database', $tenant->database_name);
-    DB::purge('tenant');
-    DB::reconnect('tenant');
-    
-    // Bind resolved tenant context to container
-    app()->instance('currentTenant', $tenant);
-    
-    return $next($request);
-}`
-    }
+    images: ['/images/vet.png']
   },
   {
     id: 'dental',
@@ -68,45 +49,7 @@ public function handle(Request $request, Closure $next)
     ],
     tech: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'REST APIs', 'Tailwind CSS'],
     link: 'https://github.com/JhonLesterY/20241_T145_Dental-Clinic-Management-System',
-    images: [
-      '/images/dental.png',
-      '/images/dental_ss1.png',
-      '/images/dental_ss2.png',
-      '/images/dental_ss3.png',
-      '/images/dental_ss4.png'
-    ],
-    codeSnippet: {
-      language: 'javascript',
-      code: `// Atomic Slot Booking with Concurrency Conflict Prevention
-export const reserveAppointment = async (req, res) => {
-  const { dentistId, slotTime, studentId } = req.body;
-  const session = await mongoose.startSession();
-  session.startTransaction();
-  
-  try {
-    const existing = await Appointment.findOne({
-      dentistId,
-      slotTime,
-      status: { $ne: 'CANCELLED' }
-    }).session(session);
-
-    if (existing) {
-      await session.abortTransaction();
-      return res.status(409).json({ error: 'Slot already reserved by another patient.' });
-    }
-    
-    const record = new Appointment({ dentistId, slotTime, studentId, status: 'CONFIRMED' });
-    await record.save({ session });
-    await session.commitTransaction();
-    res.status(201).json(record);
-  } catch (err) {
-    await session.abortTransaction();
-    res.status(500).json({ error: err.message });
-  } finally {
-    session.endSession();
-  }
-};`
-    }
+    images: ['/images/dental.png']
   },
   {
     id: 'passo',
@@ -129,28 +72,6 @@ export const reserveAppointment = async (req, res) => {
       'Tamper-evident audit trails recording all document state changes'
     ],
     tech: ['Laravel', 'React.js', 'TypeScript', 'MySQL', 'Laragon', 'REST APIs'],
-    images: ['/images/passo.png'],
-    codeSnippet: {
-      language: 'php',
-      code: `// Optimistic Locking & Audit Trail Transaction Handler
-public function updateAssessment(UpdateRecordRequest $request, $id)
-{
-    return DB::transaction(function () use ($request, $id) {
-        $record = AssessmentRecord::lockForUpdate()->findOrFail($id);
-        
-        if ($record->version !== $request->input('version')) {
-            throw new ConcurrencyException("Conflict: Record modified by another division.");
-        }
-        
-        $record->fill($request->validated());
-        $record->version++;
-        $record->last_modified_by = auth()->id();
-        $record->save();
-        
-        AuditLog::recordAction($record, 'ASSESSMENT_UPDATED');
-        return response()->json($record);
-    });
-}`
-    }
+    images: ['/images/passo.png']
   }
 ];

@@ -11,10 +11,6 @@ export interface Project {
   tech: string[];
   link?: string;
   images: string[];
-  codeSnippet?: {
-    language: string;
-    code: string;
-  };
 }
 
 export interface Certification {

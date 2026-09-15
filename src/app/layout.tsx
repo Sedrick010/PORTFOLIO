@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Inter, Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google';
-import 'highlight.js/styles/atom-one-dark.css';
 import './globals.css';
 
 const inter = Inter({

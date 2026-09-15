@@ -189,7 +189,7 @@ export default function Hero({ onOpenCV }: HeroProps) {
             src="/images/pic.png"
             alt="Sedrick James Camiguing"
             width={480}
-            height={560}
+            height={600}
             priority
             className="profile-photo"
           />
