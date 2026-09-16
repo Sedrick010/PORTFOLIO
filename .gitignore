@@ -1,5 +1,7 @@
 node_modules
 .next
 .playwright-mcp
+.vercel
+*.env*.local
 *.log
 *.tsbuildinfo
