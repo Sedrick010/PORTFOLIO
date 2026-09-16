@@ -6,7 +6,7 @@ interface ContactProps {
   onShowToast: (message: string) => void;
 }
 
-const PRIMARY_EMAIL = 'camiguingsedrick0@gmail.com';
+const PRIMARY_EMAIL = 'camiguing.sedrick0@gmail.com';
 
 export default function Contact({ onShowToast }: ContactProps) {
   const handleCopyEmail = () => {
