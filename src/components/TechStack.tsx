@@ -65,7 +65,7 @@ export default function TechStack() {
   return (
     <section id="tech-stack">
       <div className="section-header">
-        <div className="section-tag">// 02. TECH STACK &amp; TOOLS</div>
+        <div className="section-tag">Tech Stack &amp; Tooling</div>
         <h2 className="section-title">Core Technologies &amp; Tooling</h2>
         <p className="section-desc">
           The languages, frameworks, databases, and architectural tools leveraged
@@ -78,7 +78,7 @@ export default function TechStack() {
           <SpotlightCard
             key={category.title}
             className="skill-category-card"
-            spotlightColor="rgba(56, 189, 248, 0.16)"
+            spotlightColor="rgba(56, 189, 248, 0.08)"
           >
             <div className="category-header">
               <div className="category-icon">

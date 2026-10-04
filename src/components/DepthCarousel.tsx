@@ -132,7 +132,9 @@ const DepthCarousel: React.FC<DepthCarouselProps> = ({
       if (!el) continue;
 
       let d = i - pos;
-      if (cfg.loop && n > 1) {
+      if (n === 1) {
+        d = 0;
+      } else if (cfg.loop && n > 1) {
         d = ((d % n) + n) % n;
         if (d > n / 2) d -= n;
       }
@@ -399,6 +401,14 @@ const DepthCarousel: React.FC<DepthCarouselProps> = ({
   }, [autoplay, autoplayDelay, count, navigateBy]);
 
   useEffect(() => {
+    tweenRef.current?.stop();
+    posRef.current = 0;
+    focusRef.current = 0;
+    setActive(0);
+    layout(0);
+  }, [items, layout]);
+
+  useEffect(() => {
     layout(posRef.current);
   }, [
     layout,
@@ -467,7 +477,6 @@ const DepthCarousel: React.FC<DepthCarouselProps> = ({
               style={{ background: tint }}
             />
 
-            {/* Concise Picture-Only Card with Hover Button */}
             <div className="depth-carousel__overlay">
               {item.title && (
                 <h3 className="depth-carousel__card-title">{item.title}</h3>
@@ -475,6 +484,7 @@ const DepthCarousel: React.FC<DepthCarouselProps> = ({
               <button
                 type="button"
                 className="depth-carousel__view-btn"
+                tabIndex={active === i ? 0 : -1}
                 onClick={(e) => {
                   e.stopPropagation();
                   if (item.onSelect) item.onSelect();

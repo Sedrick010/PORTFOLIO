@@ -75,7 +75,6 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         </button>
 
         <div className="project-modal-split">
-          {/* Photo Column */}
           <div className="modal-gallery">
             <div className="modal-main-img-frame">
               <Image
@@ -111,7 +110,6 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             )}
           </div>
 
-          {/* Details Column */}
           <div className="modal-details">
             <h2 id="projectTitle">{project.title}</h2>
             <div className="modal-role-badge">{project.role}</div>

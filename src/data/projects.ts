@@ -3,7 +3,7 @@ import { Project } from '@/types';
 export const projects: Project[] = [
   {
     id: 'vet',
-    category: 'web',
+    category: 'system',
     title: 'Vet Clinic Management System',
     role: 'Lead Backend Developer & System Architect',
     badges: [
@@ -53,7 +53,7 @@ export const projects: Project[] = [
   },
   {
     id: 'passo',
-    category: 'web',
+    category: 'system',
     title: 'PAssO Enterprise File Management',
     role: 'Co-Developer & Systems Architect',
     badges: [

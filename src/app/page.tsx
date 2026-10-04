@@ -29,7 +29,6 @@ export default function Home() {
     }, 3200);
   };
 
-  // Scroll reveal observer
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -50,7 +49,6 @@ export default function Home() {
 
   return (
     <>
-
       <Navbar />
 
       <main style={{ position: 'relative', zIndex: 1 }}>
@@ -64,7 +62,6 @@ export default function Home() {
 
       <Footer />
 
-      {/* Interactive Modals */}
       <ProjectModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
@@ -80,7 +77,6 @@ export default function Home() {
         onClose={() => setIsCVOpen(false)}
       />
 
-      {/* Global Toast Notification System */}
       <Toast toasts={toasts} />
     </>
   );

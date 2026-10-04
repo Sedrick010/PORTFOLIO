@@ -85,7 +85,7 @@ export default function Certifications({ onSelectCertificate }: CertificationsPr
   return (
     <section id="certifications">
       <div className="section-header">
-        <div className="section-tag">// 04. CREDENTIALS &amp; INDUSTRY STANDARDS</div>
+        <div className="section-tag">Certifications &amp; Credentials</div>
         <h2 className="section-title">Certifications &amp; Competencies</h2>
         <p className="section-desc">
           Validated technical competencies in software development, computer
@@ -98,7 +98,7 @@ export default function Certifications({ onSelectCertificate }: CertificationsPr
           <SpotlightCard
             key={cert.id}
             className="cert-card"
-            spotlightColor="rgba(0, 229, 255, 0.2)"
+            spotlightColor="rgba(56, 189, 248, 0.08)"
             onClick={() => onSelectCertificate(cert.image)}
             role="button"
             tabIndex={0}
@@ -117,7 +117,7 @@ export default function Certifications({ onSelectCertificate }: CertificationsPr
               </div>
             </div>
             <p>{cert.description}</p>
-            <span className="cert-view-link">View Certificate &rarr;</span>
+            <span className="cert-view-link">View Certificate</span>
           </SpotlightCard>
         ))}
       </div>

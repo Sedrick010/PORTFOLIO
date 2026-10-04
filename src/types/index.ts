@@ -1,6 +1,6 @@
 export interface Project {
   id: string;
-  category: 'web' | 'mobile' | 'system' | 'all';
+  category: 'system' | 'web' | 'all';
   title: string;
   role: string;
   badges: { label: string; type: 'enterprise' | 'live' | 'oss' }[];

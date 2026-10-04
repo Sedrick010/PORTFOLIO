@@ -14,7 +14,7 @@ export default function Contact({ onShowToast }: ContactProps) {
       navigator.clipboard
         .writeText(PRIMARY_EMAIL)
         .then(() => {
-          onShowToast(`Copied ${PRIMARY_EMAIL} to clipboard! 📋`);
+          onShowToast(`Copied ${PRIMARY_EMAIL} to clipboard`);
         })
         .catch(() => {
           fallbackCopy(PRIMARY_EMAIL);
@@ -36,7 +36,7 @@ export default function Contact({ onShowToast }: ContactProps) {
 
     try {
       document.execCommand('copy');
-      onShowToast(`Copied ${PRIMARY_EMAIL} to clipboard! 📋`);
+      onShowToast(`Copied ${PRIMARY_EMAIL} to clipboard`);
     } catch {
       onShowToast(`Email: ${PRIMARY_EMAIL}`);
     }
@@ -46,7 +46,7 @@ export default function Contact({ onShowToast }: ContactProps) {
   return (
     <section id="contact">
       <div className="section-header">
-        <div className="section-tag">// 05. GET IN TOUCH</div>
+        <div className="section-tag">Get In Touch</div>
         <h2 className="section-title">Let&apos;s Connect &amp; Build</h2>
         <p className="section-desc">
           I am actively seeking{' '}

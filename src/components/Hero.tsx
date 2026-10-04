@@ -1,53 +1,13 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
-import TrueFocus from '@/components/TrueFocus';
+import React from 'react';
+import HeroCanvas from '@/components/HeroCanvas';
 
 interface HeroProps {
   onOpenCV: () => void;
 }
 
 export default function Hero({ onOpenCV }: HeroProps) {
-  const [typedText, setTypedText] = useState('');
-  const fullText = 'Full-Stack Software Engineer';
-
-  useEffect(() => {
-    const prefersReducedMotion = window.matchMedia(
-      '(prefers-reduced-motion: reduce)'
-    ).matches;
-
-    if (prefersReducedMotion) {
-      setTypedText(fullText);
-      return;
-    }
-
-    let index = 0;
-    let isDeleting = false;
-    let timer: NodeJS.Timeout;
-
-    const typeLoop = () => {
-      setTypedText(fullText.substring(0, index));
-
-      if (!isDeleting && index < fullText.length) {
-        index += 1;
-        timer = setTimeout(typeLoop, 65);
-      } else if (!isDeleting && index === fullText.length) {
-        isDeleting = true;
-        timer = setTimeout(typeLoop, 2200);
-      } else if (isDeleting && index > 0) {
-        index -= 1;
-        timer = setTimeout(typeLoop, 35);
-      } else {
-        isDeleting = false;
-        timer = setTimeout(typeLoop, 600);
-      }
-    };
-
-    typeLoop();
-    return () => clearTimeout(timer);
-  }, []);
-
   const scrollToContact = (e: React.MouseEvent) => {
     e.preventDefault();
     const contactEl = document.getElementById('contact');
@@ -57,38 +17,20 @@ export default function Hero({ onOpenCV }: HeroProps) {
   };
 
   return (
-    <section id="home" className="hero-split">
-      <div className="hero-text">
-        {/* Availability Status Pill */}
+    <section id="home" className="hero">
+      <HeroCanvas />
+
+      <div className="hero-content">
+        {/* Availability Status Indicator (Calm, non-looping) */}
         <div className="status-pill">
           <span className="beacon">
-            <span className="beacon-ping"></span>
             <span className="beacon-dot"></span>
           </span>
           <span>Available for full-time &amp; remote roles</span>
         </div>
 
-        <div className="hero-greeting">// SOFTWARE ENGINEER &amp; SYSTEMS DEVELOPER</div>
-        <div className="hero-name-wrapper" style={{ marginBottom: 'var(--space-2)' }}>
-          <h1 className="visually-hidden" style={{ position: 'absolute', width: '1px', height: '1px', padding: 0, margin: '-1px', overflow: 'hidden', clip: 'rect(0, 0, 0, 0)', whiteSpace: 'nowrap', border: 0 }}>
-            Sedrick James Camiguing
-          </h1>
-          <TrueFocus
-            sentence="Sedrick James | Camiguing"
-            separator=" | "
-            manualMode={false}
-            blurAmount={4}
-            borderColor="#38bdf8"
-            glowColor="rgba(56, 189, 248, 0.6)"
-            animationDuration={0.6}
-            pauseBetweenAnimations={1.2}
-          />
-        </div>
-
-        <div className="hero-role-wrapper">
-          <span className="typing-text">{typedText}</span>
-          <span className="typing-caret" aria-hidden="true"></span>
-        </div>
+        <h1 className="hero-name">Sedrick James Camiguing</h1>
+        <p className="hero-title">Full-Stack Software Engineer</p>
 
         <div className="hero-badges">
           <span className="metadata-badge">
@@ -101,6 +43,7 @@ export default function Hero({ onOpenCV }: HeroProps) {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
+              aria-hidden="true"
             >
               <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
               <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
@@ -117,6 +60,7 @@ export default function Hero({ onOpenCV }: HeroProps) {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
+              aria-hidden="true"
             >
               <polyline points="16 18 22 12 16 6"></polyline>
               <polyline points="8 6 2 12 8 18"></polyline>
@@ -133,6 +77,7 @@ export default function Hero({ onOpenCV }: HeroProps) {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
+              aria-hidden="true"
             >
               <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
               <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
@@ -154,6 +99,7 @@ export default function Hero({ onOpenCV }: HeroProps) {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
+              aria-hidden="true"
             >
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
               <polyline points="14 2 14 8 20 8"></polyline>
@@ -173,26 +119,13 @@ export default function Hero({ onOpenCV }: HeroProps) {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
+              aria-hidden="true"
             >
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
               <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
             Get In Touch
           </a>
-        </div>
-      </div>
-
-      <div className="hero-image-container">
-        <div className="photo-wrapper">
-          <div className="photo-glow"></div>
-          <Image
-            src="/images/pic.png"
-            alt="Sedrick James Camiguing"
-            width={480}
-            height={600}
-            priority
-            className="profile-photo"
-          />
         </div>
       </div>
     </section>

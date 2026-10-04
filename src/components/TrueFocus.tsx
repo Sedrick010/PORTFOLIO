@@ -20,42 +20,24 @@ export interface TrueFocusProps {
 const TrueFocus: React.FC<TrueFocusProps> = ({
   sentence = 'True Focus',
   separator = ' ',
-  manualMode = false,
-  blurAmount = 5,
   borderColor = '#38bdf8',
-  glowColor = 'rgba(56, 189, 248, 0.6)',
-  animationDuration = 0.5,
-  pauseBetweenAnimations = 1,
+  animationDuration = 0.3,
   className = '',
   style,
 }) => {
   const words = sentence.split(separator);
-  const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const [lastActiveIndex, setLastActiveIndex] = useState<number | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const wordRefs = useRef<(HTMLSpanElement | null)[]>([]);
   const [focusRect, setFocusRect] = useState({ x: 0, y: 0, width: 0, height: 0 });
 
   useEffect(() => {
-    if (!manualMode) {
-      const interval = setInterval(
-        () => {
-          setCurrentIndex((prev) => (prev + 1) % words.length);
-        },
-        (animationDuration + pauseBetweenAnimations) * 1000
-      );
-
-      return () => clearInterval(interval);
-    }
-  }, [manualMode, animationDuration, pauseBetweenAnimations, words.length]);
-
-  useEffect(() => {
     const updateRect = () => {
-      if (currentIndex === null || currentIndex === -1) return;
-      if (!wordRefs.current[currentIndex] || !containerRef.current) return;
+      const targetIdx = hoveredIndex !== null ? hoveredIndex : 1; // Default frame highlights surname
+      if (!wordRefs.current[targetIdx] || !containerRef.current) return;
 
       const parentRect = containerRef.current.getBoundingClientRect();
-      const activeRect = wordRefs.current[currentIndex]!.getBoundingClientRect();
+      const activeRect = wordRefs.current[targetIdx]!.getBoundingClientRect();
 
       setFocusRect({
         x: activeRect.left - parentRect.left,
@@ -68,20 +50,7 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
     updateRect();
     window.addEventListener('resize', updateRect);
     return () => window.removeEventListener('resize', updateRect);
-  }, [currentIndex, words.length]);
-
-  const handleMouseEnter = (index: number) => {
-    if (manualMode) {
-      setLastActiveIndex(index);
-      setCurrentIndex(index);
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (manualMode) {
-      setCurrentIndex(lastActiveIndex ?? 0);
-    }
-  };
+  }, [hoveredIndex, words.length]);
 
   return (
     <div
@@ -90,7 +59,6 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
       ref={containerRef}
     >
       {words.map((word, index) => {
-        const isActive = index === currentIndex;
         const isGradient = word.toLowerCase().includes('camiguing');
         return (
           <span
@@ -98,25 +66,9 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
             ref={(el) => {
               wordRefs.current[index] = el;
             }}
-            className={`focus-word ${isGradient ? 'gradient-text' : ''} ${
-              manualMode ? 'manual' : ''
-            } ${isActive && !manualMode ? 'active' : ''}`}
-            style={
-              {
-                filter: manualMode
-                  ? isActive
-                    ? 'blur(0px)'
-                    : `blur(${blurAmount}px)`
-                  : isActive
-                  ? 'blur(0px)'
-                  : `blur(${blurAmount}px)`,
-                '--border-color': borderColor,
-                '--glow-color': glowColor,
-                transition: `filter ${animationDuration}s ease`,
-              } as React.CSSProperties
-            }
-            onMouseEnter={() => handleMouseEnter(index)}
-            onMouseLeave={handleMouseLeave}
+            className={`focus-word ${isGradient ? 'gradient-text' : ''}`}
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
           >
             {word}
           </span>
@@ -130,15 +82,15 @@ const TrueFocus: React.FC<TrueFocusProps> = ({
           y: focusRect.y,
           width: focusRect.width,
           height: focusRect.height,
-          opacity: currentIndex >= 0 ? 1 : 0,
+          opacity: focusRect.width > 0 ? 1 : 0,
         }}
         transition={{
           duration: animationDuration,
+          ease: [0.16, 1, 0.3, 1],
         }}
         style={
           {
             '--border-color': borderColor,
-            '--glow-color': glowColor,
           } as React.CSSProperties
         }
       >
