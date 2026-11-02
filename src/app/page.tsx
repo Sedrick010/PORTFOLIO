@@ -13,6 +13,8 @@ import ProjectModal from '@/components/ProjectModal';
 import CertificateModal from '@/components/CertificateModal';
 import ResumeModal from '@/components/ResumeModal';
 import Toast, { ToastMessage } from '@/components/Toast';
+import InteractiveBackground from '@/components/InteractiveBackground';
+import CustomCursor from '@/components/CustomCursor';
 import { Project } from '@/types';
 
 export default function Home() {
@@ -49,6 +51,8 @@ export default function Home() {
 
   return (
     <>
+      <CustomCursor />
+      <InteractiveBackground />
       <Navbar />
 
       <main style={{ position: 'relative', zIndex: 1 }}>

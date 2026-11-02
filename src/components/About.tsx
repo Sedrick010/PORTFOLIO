@@ -18,7 +18,9 @@ export default function About() {
         {/* Featured Academic & Systems Background Card */}
         <SpotlightCard
           className="about-card about-card--featured"
-          spotlightColor="rgba(56, 189, 248, 0.1)"
+          data-hover-fx
+          data-hover-accent="orange"
+          spotlightColor="rgba(249, 115, 22, 0.1)"
           style={{ gridColumn: 'span 2' }}
         >
           <div className="about-card-header">
@@ -51,7 +53,9 @@ export default function About() {
         {/* Full-Stack Competency Card */}
         <SpotlightCard
           className="about-card"
-          spotlightColor="rgba(56, 189, 248, 0.1)"
+          data-hover-fx
+          data-hover-accent="teal"
+          spotlightColor="rgba(20, 184, 166, 0.1)"
         >
           <div className="about-card-header">
             <div className="about-card-icon">
@@ -83,7 +87,9 @@ export default function About() {
         {/* Systems & Architecture Card */}
         <SpotlightCard
           className="about-card"
-          spotlightColor="rgba(56, 189, 248, 0.1)"
+          data-hover-fx
+          data-hover-accent="orange"
+          spotlightColor="rgba(249, 115, 22, 0.1)"
         >
           <div className="about-card-header">
             <div className="about-card-icon">

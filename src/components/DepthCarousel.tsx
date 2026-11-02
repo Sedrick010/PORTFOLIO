@@ -61,10 +61,10 @@ const DepthCarousel: React.FC<DepthCarouselProps> = ({
   visibleCards = 3,
   falloff = 0.22,
   blur = 6,
-  duration = 750,
+  duration = 550,
   autoplay = false,
   autoplayDelay = 3200,
-  loop = true,
+  loop = false,
   showControls = true,
   showIndicators = true,
   onChange,
@@ -98,7 +98,10 @@ const DepthCarousel: React.FC<DepthCarouselProps> = ({
     id: number;
   } | null>(null);
 
-  const wheelTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const isAnimatingRef = useRef(false);
+  const lastNavTimeRef = useRef(0);
+  const wheelAccRef = useRef(0);
+  const wheelResetTimerRef = useRef<NodeJS.Timeout | null>(null);
   const autoTimerRef = useRef<number | null>(null);
   const reducedRef = useRef(false);
 
@@ -192,11 +195,17 @@ const DepthCarousel: React.FC<DepthCarouselProps> = ({
         posRef.current = target;
         layout(target);
         const n = cfg.count;
-        if (n > 0) posRef.current = ((posRef.current % n) + n) % n;
+        if (cfg.loop && n > 0) {
+          posRef.current = ((posRef.current % n) + n) % n;
+        } else if (n > 0) {
+          posRef.current = clamp(posRef.current, 0, n - 1);
+        }
         layout(posRef.current);
+        isAnimatingRef.current = false;
         return;
       }
 
+      isAnimatingRef.current = true;
       tweenRef.current = animate(posRef.current, target, {
         duration: dur,
         ease: [0.215, 0.61, 0.355, 1], // power3.out smooth curve
@@ -205,8 +214,13 @@ const DepthCarousel: React.FC<DepthCarouselProps> = ({
           layout(latest);
         },
         onComplete: () => {
+          isAnimatingRef.current = false;
           const n = cfg.count;
-          if (n > 0) posRef.current = ((posRef.current % n) + n) % n;
+          if (cfg.loop && n > 0) {
+            posRef.current = ((posRef.current % n) + n) % n;
+          } else if (n > 0) {
+            posRef.current = clamp(posRef.current, 0, n - 1);
+          }
           layout(posRef.current);
         }
       });
@@ -256,33 +270,96 @@ const DepthCarousel: React.FC<DepthCarouselProps> = ({
   useEffect(() => {
     const el = rootRef.current;
     if (!el) return;
+
     const onWheel = (e: WheelEvent) => {
       const cfg = cfgRef.current;
-      if (cfg.count < 2) return;
-      e.preventDefault();
-      tweenRef.current?.stop();
+      const n = cfg.count;
+      if (n < 2) return;
+
       const raw = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
       const delta = e.deltaMode === 1 ? raw * 24 : raw;
-      const step = clamp(delta / (cfg.cardWidth * 0.9), -0.6, 0.6);
-      posRef.current += step;
-      layout(posRef.current);
-      if (wheelTimerRef.current) clearTimeout(wheelTimerRef.current);
-      wheelTimerRef.current = setTimeout(
-        () => setFocus(Math.round(posRef.current), true),
-        130
-      );
+
+      // Ignore micro-jitter
+      if (Math.abs(delta) < 2) return;
+
+      const isScrollingDown = delta > 0;
+      const isScrollingUp = delta < 0;
+      const now = performance.now();
+      const timeSinceLastNav = now - lastNavTimeRef.current;
+
+      // When loop is false, release scroll at boundaries
+      if (!cfg.loop) {
+        // At the last card:
+        if (focusRef.current >= n - 1 && isScrollingDown) {
+          // If recently navigated, absorb residual inertial scroll
+          if (timeSinceLastNav < 350 || isAnimatingRef.current) {
+            e.preventDefault();
+            return;
+          }
+          // Hit the last card and scrolling down:
+          // DO NOT preventDefault! Let page scroll continue down below.
+          wheelAccRef.current = 0;
+          return;
+        }
+
+        // At the first card:
+        if (focusRef.current <= 0 && isScrollingUp) {
+          // If recently navigated, absorb residual inertial scroll
+          if (timeSinceLastNav < 350 || isAnimatingRef.current) {
+            e.preventDefault();
+            return;
+          }
+          // Hit the first card and scrolling up:
+          // DO NOT preventDefault! Let page scroll continue up above.
+          wheelAccRef.current = 0;
+          return;
+        }
+      }
+
+      // We are navigating inside the carousel: prevent window scroll
+      e.preventDefault();
+
+      // If animation is in progress or in cooldown, consume event without triggering duplicate navigation
+      if (isAnimatingRef.current || timeSinceLastNav < 450) {
+        return;
+      }
+
+      wheelAccRef.current += delta;
+
+      if (wheelResetTimerRef.current) clearTimeout(wheelResetTimerRef.current);
+      wheelResetTimerRef.current = setTimeout(() => {
+        wheelAccRef.current = 0;
+      }, 180);
+
+      const THRESHOLD = 35;
+
+      if (wheelAccRef.current > THRESHOLD) {
+        if (cfg.loop || focusRef.current < n - 1) {
+          lastNavTimeRef.current = performance.now();
+          wheelAccRef.current = 0;
+          navigateBy(1);
+        }
+      } else if (wheelAccRef.current < -THRESHOLD) {
+        if (cfg.loop || focusRef.current > 0) {
+          lastNavTimeRef.current = performance.now();
+          wheelAccRef.current = 0;
+          navigateBy(-1);
+        }
+      }
     };
+
     el.addEventListener('wheel', onWheel, { passive: false });
     return () => {
       el.removeEventListener('wheel', onWheel);
-      if (wheelTimerRef.current) clearTimeout(wheelTimerRef.current);
+      if (wheelResetTimerRef.current) clearTimeout(wheelResetTimerRef.current);
     };
-  }, [layout, setFocus]);
+  }, [navigateBy]);
 
   const onPointerDown = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
     const cfg = cfgRef.current;
     if (cfg.count < 2) return;
     tweenRef.current?.stop();
+    isAnimatingRef.current = false;
     dragRef.current = {
       x: e.clientX,
       startPos: posRef.current,
@@ -311,7 +388,15 @@ const DepthCarousel: React.FC<DepthCarouselProps> = ({
       drag.v = (e.clientX - drag.lastX) / dt;
       drag.lastX = e.clientX;
       drag.lastT = now;
-      posRef.current = drag.startPos - dx / stepPx;
+      let rawPos = drag.startPos - dx / stepPx;
+      if (!cfg.loop) {
+        if (rawPos < 0) {
+          rawPos = rawPos * 0.25;
+        } else if (rawPos > cfg.count - 1) {
+          rawPos = (cfg.count - 1) + (rawPos - (cfg.count - 1)) * 0.25;
+        }
+      }
+      posRef.current = rawPos;
       layout(posRef.current);
     },
     [layout]
@@ -428,7 +513,7 @@ const DepthCarousel: React.FC<DepthCarouselProps> = ({
   useEffect(
     () => () => {
       tweenRef.current?.stop();
-      if (wheelTimerRef.current) clearTimeout(wheelTimerRef.current);
+      if (wheelResetTimerRef.current) clearTimeout(wheelResetTimerRef.current);
       if (autoTimerRef.current) clearInterval(autoTimerRef.current);
     },
     []
@@ -518,6 +603,7 @@ const DepthCarousel: React.FC<DepthCarouselProps> = ({
             type="button"
             className="depth-carousel__arrow depth-carousel__arrow--prev"
             aria-label="Previous slide"
+            disabled={!loop && active === 0}
             onClick={() => navigateBy(-1)}
           >
             <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
@@ -535,6 +621,7 @@ const DepthCarousel: React.FC<DepthCarouselProps> = ({
             type="button"
             className="depth-carousel__arrow depth-carousel__arrow--next"
             aria-label="Next slide"
+            disabled={!loop && active === count - 1}
             onClick={() => navigateBy(1)}
           >
             <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">

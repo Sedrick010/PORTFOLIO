@@ -1,0 +1,416 @@
+.custom-cursor-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none !important;
+  z-index: 99999;
+  overflow: hidden;
+  will-change: opacity;
+  transition: opacity 0.25s ease;
+}
+
+.custom-cursor-layer.is-hidden {
+  opacity: 0 !important;
+}
+
+.cursor-core-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background-color: var(--cursor-color, #f97316);
+  box-shadow: 0 0 10px var(--cursor-color, #f97316), 0 0 2px #ffffff;
+  pointer-events: none;
+  will-change: transform;
+  transform: translate3d(-50%, -50%, 0);
+  transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+.cursor-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 38px;
+  height: 38px;
+  pointer-events: none;
+  will-change: transform;
+  transform: translate3d(-50%, -50%, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.25s ease;
+  color: var(--cursor-color, #f97316);
+}
+
+.cursor-ring-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.cursor-ring-circle {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-dasharray: 6 5;
+  stroke-linecap: round;
+  opacity: 0.85;
+  filter: drop-shadow(0 0 4px var(--cursor-color, #f97316));
+  transition: stroke 0.25s ease;
+}
+
+.cursor-ring-corner {
+  fill: currentColor;
+  opacity: 0.9;
+}
+
+.cursor-trail-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background-color: var(--cursor-color, #f97316);
+  pointer-events: none;
+  will-change: transform, opacity;
+  box-shadow: 0 0 6px var(--cursor-color, #f97316);
+}
+
+/* Hide ring on hover so element text remains unobstructed */
+.custom-cursor-layer.is-hovering .cursor-ring {
+  opacity: 0 !important;
+  transform: translate3d(-50%, -50%, 0) scale(0) !important;
+  transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.custom-cursor-layer.is-hovering .cursor-core-dot {
+  width: 6px;
+  height: 6px;
+  box-shadow: 0 0 8px var(--cursor-color, #f97316);
+}
+
+.custom-cursor-layer.is-clicking .cursor-core-dot {
+  width: 5px;
+  height: 5px;
+  transform: translate3d(-50%, -50%, 0) scale(1.4);
+}
+
+.custom-cursor-layer.is-clicking .cursor-ring {
+  width: 28px;
+  height: 28px;
+}
+
+.custom-cursor-layer.is-text-mode {
+  opacity: 0 !important;
+}
+
+@property --hover-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes hoverBorderSpin {
+  0% {
+    --hover-angle: 0deg;
+  }
+  100% {
+    --hover-angle: 360deg;
+  }
+}
+
+[data-hover-fx],
+.hover-fx,
+.project-pinned-card,
+.cert-card,
+.about-card,
+.btn-primary,
+.btn-outline,
+.filter-pill,
+.theme-toggle,
+.project-card-cta,
+.modal-close-btn {
+  --hover-fx-accent: #f97316;
+  --hover-fx-accent-secondary: rgba(249, 115, 22, 0.2);
+  --hover-fx-glow: rgba(249, 115, 22, 0.45);
+  position: relative;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.28s ease,
+              border-color 0.28s ease;
+}
+
+/* Make sure child content stays above the perimeter border and remains static/readable */
+[data-hover-fx] > *,
+.hover-fx > * {
+  position: relative;
+  z-index: 2;
+}
+
+[data-hover-accent="orange"],
+.hover-fx-orange,
+.project-pinned-card,
+.project-card-cta {
+  --hover-fx-accent: #f97316;
+  --hover-fx-accent-secondary: rgba(249, 115, 22, 0.2);
+  --hover-fx-glow: rgba(249, 115, 22, 0.5);
+}
+
+[data-hover-accent="teal"],
+.hover-fx-teal,
+.project-tech-pill,
+.skill-pill {
+  --hover-fx-accent: #14b8a6;
+  --hover-fx-accent-secondary: rgba(20, 184, 166, 0.2);
+  --hover-fx-glow: rgba(20, 184, 166, 0.5);
+}
+
+[data-hover-accent="gold"],
+.hover-fx-gold,
+.cert-card {
+  --hover-fx-accent: #eab308;
+  --hover-fx-accent-secondary: rgba(234, 179, 8, 0.2);
+  --hover-fx-glow: rgba(234, 179, 8, 0.5);
+}
+
+[data-hover-accent="blue"],
+.hover-fx-blue,
+.btn-primary,
+.filter-pill,
+.theme-toggle {
+  --hover-fx-accent: #38bdf8;
+  --hover-fx-accent-secondary: rgba(56, 189, 248, 0.2);
+  --hover-fx-glow: rgba(56, 189, 248, 0.5);
+}
+
+[data-hover-fx]::before,
+.hover-fx::before,
+.project-pinned-card::before,
+.cert-card::before,
+.about-card::before,
+.btn-primary::before,
+.btn-outline::before,
+.filter-pill::before,
+.theme-toggle::before,
+.project-card-cta::before,
+.modal-close-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  padding: 1.8px;
+  border-radius: inherit;
+  background:
+    conic-gradient(
+      from var(--hover-angle, 0deg),
+      #ffffff 0deg 2deg,
+      transparent 2deg 88deg,
+      #ffffff 90deg 92deg,
+      transparent 92deg 178deg,
+      #ffffff 180deg 182deg,
+      transparent 182deg 268deg,
+      #ffffff 270deg 272deg,
+      transparent 272deg 360deg
+    ),
+    repeating-conic-gradient(
+      from var(--hover-angle, 0deg),
+      var(--hover-fx-accent) 0deg 3.5deg,
+      transparent 3.5deg 7deg
+    );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none !important;
+  opacity: 0;
+  filter: drop-shadow(0 0 4px var(--hover-fx-accent));
+  transition: opacity 0.28s ease;
+  z-index: 10;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  [data-hover-fx]:hover,
+  [data-hover-fx][data-hover-active="true"],
+  .hover-fx:hover,
+  .hover-fx[data-hover-active="true"],
+  .project-pinned-card:hover,
+  .project-pinned-card[data-hover-active="true"],
+  .cert-card:hover,
+  .cert-card[data-hover-active="true"],
+  .about-card:hover,
+  .about-card[data-hover-active="true"],
+  .btn-primary:hover,
+  .btn-primary[data-hover-active="true"],
+  .btn-outline:hover,
+  .btn-outline[data-hover-active="true"],
+  .filter-pill:hover,
+  .filter-pill[data-hover-active="true"],
+  .theme-toggle:hover,
+  .theme-toggle[data-hover-active="true"],
+  .project-card-cta:hover,
+  .project-card-cta[data-hover-active="true"],
+  .modal-close-btn:hover,
+  .modal-close-btn[data-hover-active="true"] {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 34px -8px rgba(0, 0, 0, 0.65),
+                0 0 20px var(--hover-fx-glow);
+  }
+
+  [data-hover-fx]:hover::before,
+  [data-hover-fx][data-hover-active="true"]::before,
+  .hover-fx:hover::before,
+  .hover-fx[data-hover-active="true"]::before,
+  .project-pinned-card:hover::before,
+  .project-pinned-card[data-hover-active="true"]::before,
+  .cert-card:hover::before,
+  .cert-card[data-hover-active="true"]::before,
+  .about-card:hover::before,
+  .about-card[data-hover-active="true"]::before,
+  .btn-primary:hover::before,
+  .btn-primary[data-hover-active="true"]::before,
+  .btn-outline:hover::before,
+  .btn-outline[data-hover-active="true"]::before,
+  .filter-pill:hover::before,
+  .filter-pill[data-hover-active="true"]::before,
+  .theme-toggle:hover::before,
+  .theme-toggle[data-hover-active="true"]::before,
+  .project-card-cta:hover::before,
+  .project-card-cta[data-hover-active="true"]::before,
+  .modal-close-btn:hover::before,
+  .modal-close-btn[data-hover-active="true"]::before {
+    opacity: 0.95;
+    animation: hoverBorderSpin 5s linear infinite;
+  }
+}
+
+[data-hover-fx]:focus-visible,
+.hover-fx:focus-visible,
+.project-pinned-card:focus-visible,
+.cert-card:focus-visible,
+.about-card:focus-visible,
+.btn-primary:focus-visible,
+.btn-outline:focus-visible,
+.filter-pill:focus-visible,
+.theme-toggle:focus-visible,
+.project-card-cta:focus-visible,
+.modal-close-btn:focus-visible {
+  outline: 2px solid var(--hover-fx-accent);
+  outline-offset: 3px;
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px -8px rgba(0, 0, 0, 0.65),
+              0 0 20px var(--hover-fx-glow);
+}
+
+[data-hover-fx]:focus-visible::before,
+.hover-fx:focus-visible::before,
+.project-pinned-card:focus-visible::before,
+.cert-card:focus-visible::before,
+.about-card:focus-visible::before,
+.btn-primary:focus-visible::before,
+.btn-outline:focus-visible::before,
+.filter-pill:focus-visible::before,
+.theme-toggle:focus-visible::before,
+.project-card-cta:focus-visible::before,
+.modal-close-btn:focus-visible::before {
+  opacity: 0.95;
+  animation: hoverBorderSpin 5s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-hover-fx]:hover,
+  [data-hover-fx]:focus-visible,
+  .hover-fx:hover,
+  .hover-fx:focus-visible,
+  .project-pinned-card:hover,
+  .project-pinned-card:focus-visible,
+  .cert-card:hover,
+  .cert-card:focus-visible,
+  .about-card:hover,
+  .about-card:focus-visible,
+  .btn-primary:hover,
+  .btn-primary:focus-visible,
+  .btn-outline:hover,
+  .btn-outline:focus-visible,
+  .filter-pill:hover,
+  .filter-pill:focus-visible,
+  .theme-toggle:hover,
+  .theme-toggle:focus-visible,
+  .project-card-cta:hover,
+  .project-card-cta:focus-visible,
+  .modal-close-btn:hover,
+  .modal-close-btn:focus-visible {
+    transform: none !important;
+    box-shadow: 0 0 16px var(--hover-fx-glow) !important;
+  }
+
+  [data-hover-fx]::before,
+  .hover-fx::before,
+  .project-pinned-card::before,
+  .cert-card::before,
+  .about-card::before,
+  .btn-primary::before,
+  .btn-outline::before,
+  .filter-pill::before,
+  .theme-toggle::before,
+  .project-card-cta::before,
+  .modal-close-btn::before {
+    animation: none !important;
+    background: var(--hover-fx-accent) !important;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html,
+  body,
+  a,
+  button,
+  [role="button"],
+  .filter-pill,
+  .cert-card,
+  .about-card,
+  .project-pinned-card,
+  .theme-toggle,
+  .btn-primary,
+  .btn-outline,
+  .nav-link,
+  .skill-pill,
+  .depth-carousel__view-btn {
+    cursor: none !important;
+  }
+
+  input,
+  textarea,
+  [contenteditable="true"] {
+    cursor: text !important;
+  }
+}
+
+@media (hover: none) or (pointer: coarse) {
+  .custom-cursor-layer {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-trail-dot {
+    display: none !important;
+  }
+
+  .cursor-ring-svg {
+    animation: none !important;
+  }
+}

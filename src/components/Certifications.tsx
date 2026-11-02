@@ -98,7 +98,9 @@ export default function Certifications({ onSelectCertificate }: CertificationsPr
           <SpotlightCard
             key={cert.id}
             className="cert-card"
-            spotlightColor="rgba(56, 189, 248, 0.08)"
+            data-hover-fx
+            data-hover-accent="gold"
+            spotlightColor="rgba(234, 179, 8, 0.08)"
             onClick={() => onSelectCertificate(cert.image)}
             role="button"
             tabIndex={0}

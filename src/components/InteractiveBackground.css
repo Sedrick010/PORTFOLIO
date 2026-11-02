@@ -1,0 +1,47 @@
+.interactive-background {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  background-color: var(--bg-dark, #070a10);
+  transition: background-color 0.5s ease;
+}
+
+:root[data-theme='light'] .interactive-background {
+  background-color: #f8fafc;
+}
+
+.interactive-bg-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+
+.interactive-bg-vignette {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    transparent 45%,
+    rgba(7, 10, 16, 0.45) 85%,
+    rgba(7, 10, 16, 0.8) 100%
+  );
+  pointer-events: none;
+}
+
+:root[data-theme='light'] .interactive-bg-vignette {
+  background: radial-gradient(
+    circle at 50% 50%,
+    transparent 55%,
+    rgba(241, 245, 249, 0.3) 85%,
+    rgba(241, 245, 249, 0.6) 100%
+  );
+}

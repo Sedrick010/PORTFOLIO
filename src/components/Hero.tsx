@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import HeroCanvas from '@/components/HeroCanvas';
 
 interface HeroProps {
   onOpenCV: () => void;
@@ -18,8 +17,6 @@ export default function Hero({ onOpenCV }: HeroProps) {
 
   return (
     <section id="home" className="hero">
-      <HeroCanvas />
-
       <div className="hero-content">
         {/* Availability Status Indicator (Calm, non-looping) */}
         <div className="status-pill">
@@ -89,7 +86,7 @@ export default function Hero({ onOpenCV }: HeroProps) {
         </div>
 
         <div className="btn-group">
-          <button onClick={onOpenCV} className="btn-primary" type="button">
+          <button onClick={onOpenCV} className="btn-primary" type="button" data-hover-fx data-hover-accent="orange">
             <svg
               width="18"
               height="18"
@@ -109,7 +106,7 @@ export default function Hero({ onOpenCV }: HeroProps) {
             </svg>
             View Resume
           </button>
-          <a href="#contact" onClick={scrollToContact} className="btn-outline">
+          <a href="#contact" onClick={scrollToContact} className="btn-outline" data-hover-fx data-hover-accent="orange">
             <svg
               width="18"
               height="18"
